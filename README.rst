@@ -28,46 +28,46 @@ Messages Statistics
 
 .. image:: http://espace-groupware.com/docs/mongo-mail/img/dashboard-default.png
    :align: center
-   :scale: 50 %
+   :scale: 50%
    
 Country Map
 -----------
 
 .. image:: http://espace-groupware.com/docs/mongo-mail/img/dashboard-country.png
    :align: center
-   :scale: 50 %
+   :scale: 50%
 
 Multi Top Ten
 -------------
    
 .. image:: http://espace-groupware.com/docs/mongo-mail/img/dashboard-top-ten.png
    :align: center
-   :scale: 50 %
+   :scale: 50%
    
 Messages tables and search
 --------------------------
    
 .. image:: http://espace-groupware.com/docs/mongo-mail/img/message-table.png
    :align: center
-   :scale: 50 %
+   :scale: 50%
 
 .. image:: http://espace-groupware.com/docs/mongo-mail/img/message-table-search.png
    :align: center
-   :scale: 50 %
+   :scale: 50%
 
 Messages show
 -------------
    
 .. image:: http://espace-groupware.com/docs/mongo-mail/img/show-message.png
    :align: center
-   :scale: 50 %
+   :scale: 50%
    
 Metrics tables
 --------------
 
 .. image:: http://espace-groupware.com/docs/mongo-mail/img/metrics-table.png
    :align: center
-   :scale: 50 %
+   :scale: 50%
    
 Installation
 ============
@@ -84,9 +84,6 @@ Required
 - python-gevent 1.0+
 - recent setuptools and pip installer
 - Nginx (optionnal)
-
-Installation
-::::::::::::
 
 .. code:: bash
 
