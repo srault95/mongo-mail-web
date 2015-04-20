@@ -1,0 +1,36 @@
+<div class="btn-group navbar-btn">
+  <a class="btn btn-default" href="#"><i class="fa fa-bullseye fa-fw"></i> {{ current_theme }}</a>
+  <a class="btn btn-default dropdown-toggle" data-toggle="dropdown" href="#">
+    <span class="fa fa-caret-down"></span>
+  </a>
+  <ul class="dropdown-menu">
+  {% for theme in themes %}
+    {% if theme == current_theme %}                            
+        <li class="active"><a href="{{ url_for('changetheme') }}?theme={{ theme }}">{{ theme }} *</a></li>
+    {% else %}    
+        <li><a href="{{ url_for('changetheme') }}?theme={{ theme }}">{{ theme }}</a></li>
+    {% endif %}    
+  {% endfor %}
+  </ul>
+</div>
+
+<div class="btn-group navbar-btn">
+  <a class="btn btn-default" href="#"><i class="fa fa-user fa-fw"></i> {{ current_user.username }}</a>
+  <a class="btn btn-default dropdown-toggle" data-toggle="dropdown" href="#">
+    <span class="fa fa-caret-down"></span>
+  </a>
+  <ul class="dropdown-menu">
+    <li><a href="{{ url_for('user_menu.logout') }}"><i class="fa fa-pencil fa-fw"></i> {{_('Logout')}}</a></li>
+    {% if security.changeable %}
+    <li><a id="change-password" href="javascript:void(0)"><i class="fa fa-pencil fa-fw"></i> {{_('Change Password')}}</a></li>
+    {% endif %}
+    <li class="divider"></li>
+    {% for lang in langs %}
+        {% if lang.0 != current_lang %}
+        <li class="f16"><a href="{{ url_for('user_menu.change_lang') }}?locale={{lang.0}}"><i class="flag {{lang.0}}"></i> {{lang.1}}</a></li>
+        {% endif %}
+    {% endfor %}
+    
+  </ul>
+</div>
+

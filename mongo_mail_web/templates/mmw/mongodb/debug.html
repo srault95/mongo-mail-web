@@ -1,0 +1,72 @@
+{% extends 'admin/master.html' %}
+
+{% block body %}
+
+{#
+{u'avgObjSize': 55826.09366834171,
+ u'collections': 11,
+ u'dataFileVersion': {u'major': 4, u'minor': 5},
+ u'dataSize': 277734816,
+ u'db': u'message',
+ u'extentFreeList': {u'num': 3, u'totalSize': 2162688},
+ u'fileSize': 520093696,
+ u'indexSize': 2264752,
+ u'indexes': 37,
+ u'nsSizeMB': 16,
+ u'numExtents': 32,
+ u'objects': 4975,
+ u'ok': 1.0,
+ u'storageSize': 326004736}
+#}
+<pre>
+{{ dbstats|pprint }}
+</pre>
+
+{#
+{u'avgObjSize': 4131,
+ u'count': 1363,
+ u'indexSizes': {u'_id_': 57232,
+                 u'client_address_1': 73584,
+                 u'country_1': 40880,
+                 u'domain_name_1': 40880,
+                 u'files_1': 245280,
+                 u'group_name_1': 57232,
+                 u'message_id_1': 147168,
+                 u'policy_uid_1': 40880,
+                 u'quarantine_id_1': 73584,
+                 u'queue_1': 49056,
+                 u'rcpt_1': 106288,
+                 u'received_-1': 73584,
+                 u'received_-1_sender_1_rcpt_1_subject_1': 392448,
+                 u'sender_1': 98112,
+                 u'sent_1': 65408,
+                 u'server_1': 49056,
+                 u'store_key_1': 138992,
+                 u'subject_1': 122640},
+ u'lastExtentSize': 5664768,
+ u'nindexes': 18,
+ u'ns': u'message.message',
+ u'numExtents': 6,
+ u'ok': 1.0,
+ u'paddingFactor': 1.0,
+ u'size': 5630672,
+ u'storageSize': 11243520,
+ u'systemFlags': 1,
+ u'totalIndexSize': 1872304,
+ u'userFlags': 1}
+#}
+<pre>
+{{ collstats|pprint }}
+</pre>
+
+
+<pre>
+{{ collindex|pprint }}
+</pre>
+
+<pre>
+{{ colloptions|pprint }}
+</pre>
+
+{% endblock body %}
+

@@ -1,0 +1,89 @@
+    <div class="contenair">
+        <div class="row">           
+            <div class="col-md-12">
+
+                <div role="tabpanel">
+                
+                    <ul class="nav nav-tabs" role="tablist">
+                        <li role="graphs" class="active"><a href="#metric_day_panel" aria-controls="metric_day_panel" role="tab" data-toggle="tab"><i class="fa fa-envelope-o fa-fw"></i> {{ _("Messages") }}</a></li>        
+                        <li role="graphs"><a href="#top_country_panel" aria-controls="top_country_panel" role="tab" data-toggle="tab"><i class="fa fa-connectdevelop fa-fw"></i> {{ _("World Map") }}</a></li>        
+                        <li role="graphs"><a href="#top_generic_panel" aria-controls="top_generic_panel" role="tab" data-toggle="tab"><i class="fa fa-table fa-fw"></i> {{ _("All Top") }}</a></li>        
+                    </ul>
+                    
+                    <div class="tab-content">
+                        <div role="tabpanel" class="tab-pane active" id="metric_day_panel">
+                            <div class="contenair">
+
+                                <div class="row">
+                                    <div class="col-md-8">
+                                        <div class="panel panel-default">
+                                            <div class="panel-heading">
+                                                <h3 class="panel-title">
+                                                    <i class="fa fa-bar-chart fa-fw"></i>
+                                                    <span id="metric_per_period_title"></span>
+                                                    {#                                                
+                                                    <div class="pull-left" id="metric_per_period_field"></div>
+                                                    #}
+                                                </h3>
+                                            </div>
+                                            <div class="panel-body">
+                                                <div class="flot-chart">
+	                                               <div class="flot-chart-content" id="metric_per_period"></div>
+	                                            </div>
+                                            </div>
+                                        </div>    
+                                    </div><!-- //col-md-5 -->
+
+                                    <div class="col-md-4">
+                                        <div class="panel panel-default">
+                                            <div class="panel-heading">        
+                                                <h3 class="panel-title">
+                                                <i class="fa fa-building fa-fw"></i> {{ _("Aggregation for this period") }}</h3>
+                                            </div>
+                                            <div id="label_table"></div>
+                                        </div>    
+                                    </div>
+                                </div><!-- /row -->
+                                {#                                
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <div class="panel panel-default">
+                                            <div class="panel-heading">
+                                                <h3>Titre</h3>
+                                            </div>
+                                            <div class="panel-body">
+                                                <div id="chart1"></div>
+                                            </div>
+                                        </div>  
+                                    </div>
+                                </div><!-- /row -->
+                                #}
+                                    
+                                
+                            </div>
+                        </div>
+                        
+                        <div role="tabpanel" class="tab-pane" id="top_generic_panel">
+                            <div class="contenair">
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <div id="top_ip">&nbsp;</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>                                
+                        <div role="tabpanel" class="tab-pane" id="top_country_panel">
+                            <div class="contenair">
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <div id="top_country"></div>
+                                    </div>
+                                </div>
+                            </div>                
+                        </div>          
+                    </div><!--//tab-content  -->
+                </div><!--//tabpanel -->
+            </div>
+        </div>
+    </div>
+

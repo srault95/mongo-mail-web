@@ -1,0 +1,65 @@
+{% if not standalone %}{% extends 'admin/master.html' %}{% endif %}
+
+{% macro group_by_period(period='day') %}
+
+<div class="panel panel-default">
+
+    <div class="panel-heading">        
+        <h3 class="panel-title">
+	        <a type="button" class="btn btn-default btn-xs" href="#" id="metric_{{period}}_refresh"><i class="glyphicon glyphicon-refresh"></i></a>
+	        Messages - From {{ first_time|datetimeformat(format='long') }} To {{ last_time|datetimeformat(format='long') }}
+	        <div class="pull-right">
+	            <a type="button" class="btn btn-default btn-xs" href="#metric_{{period}}_collapse" data-toggle="collapse" aria-expanded="true" aria-controls="metric_{{period}}_collapse"><i class="glyphicon glyphicon-resize-small"></i></a>
+	        </div>
+        </h3>
+    </div>
+
+    <div class="panel-body collapse.in" id="metric_{{period}}_collapse">
+
+        <div class="contenair">
+            <div class="row">
+                <div class="col-md-7">
+                    <div id="metric_{{period}}_chart_target"></div>
+                </div>        
+                <div class="col-md-5">
+                    <table id="metric_{{period}}_chart" class="table table-hover table-condensed table-striped" 
+                        data-graph-container="#metric_{{period}}_chart_target"
+                        data-graph-type="line"
+                        data-graph-xaxis-type="datetime">
+                        <thead>
+                            <th>Date</th>
+                            <th>Total</th>
+                            <th>Incoming</th>
+                            <th>Outgoing</th>
+                            <th data-graph-hidden="1">Spam</th>
+                            <th data-graph-hidden="1">Size (avg)</th>
+                            <th data-graph-hidden="1">Size (total)</th>
+                        </thead>
+                        <tbody>
+                        {% for d in data %}
+                            <tr>
+                                <td>{{ d.date }}</td>{#|dateformat(format='short')#}
+                                <td>{{ d.mail_count|numberformat }}</td>
+                                <td>{{ d.mail_in|numberformat }}</td>
+                                <td>{{ d.mail_out|numberformat }}</td>
+                                <td>{{ d.spam|numberformat }}</td>
+                                <td>{{ d.size_avg|filesizeformat }}</td>
+                                <td>{{ d.size_sum|filesizeformat }}</td>
+                            </tr>    
+                        {% endfor %}
+                        </tbody>
+                    </table>
+        
+                </div>        
+            </div><!-- //row -->
+        </div><!-- //contenair -->
+    
+    </div><!-- //panel-body -->
+    
+</div>
+{% endmacro %}
+
+{% block body %}
+{{ group_by_period('day') }}
+{% endblock body %}
+        

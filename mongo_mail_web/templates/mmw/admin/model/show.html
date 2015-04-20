@@ -1,0 +1,39 @@
+{% extends 'admin/master.html' %}
+{% import 'admin/lib.html' as lib with context %}
+
+{% block head %}
+    {{ super() }}
+    {{ lib.form_css() }}
+{% endblock %}
+
+{# Modify original macro for add id to form #}
+{% macro form_tag(form=None, action=None) %}
+    <form id="model_form" action="{{ action or '' }}" method="POST" role="form" class="admin-form form-horizontal" enctype="multipart/form-data">
+      {{ caller() }}
+    </form>
+{% endmacro %}
+
+{# Modify original call form for remove buttons #}
+{% block body %}
+    {% call form_tag(form) %}
+        {{ lib.render_form_fields(form, form_opts=form_opts) }}
+    {% endcall %}
+{% endblock %}
+
+{% block tail %}
+    {{ super() }}
+    {{ lib.form_js() }}
+  
+	<script type="text/javascript">
+	$(document).ready(function() {
+		$('#model_form :enabled').attr('disabled', 'disabled');
+		$('#model_form :button, #model_form :submit, #model_form :reset, #model_form .btn').hide();
+		/*
+		TODO: Remplacer les cache coché/non coché par icon
+		TODO: remplacer textarea par plain text ou change style
+		*/
+	}); 
+	</script>    
+{% endblock %}
+
+

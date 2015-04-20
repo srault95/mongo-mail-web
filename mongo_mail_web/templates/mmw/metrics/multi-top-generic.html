@@ -1,0 +1,80 @@
+{% import 'mmw/metrics/top_generic.html' as top with context %}
+
+
+<div class="panel panel-default">
+
+    <div class="panel-heading">        
+        <h3 class="panel-title">
+	        <a type="button" class="btn btn-default btn-xs metric-top-generic" href="{{url|safe}}"><i class="fa fa-refresh fa-fw"></i></a>
+	        <span id="generic_top_title"></span>
+	        <div class="pull-right">
+	            <select id="generic_top_current_field">
+	                {% for key, value in c.METRIC_KEY_TYPE_CHOICES %}
+	                      <option value="{{key}}" {% if key == key_type %}selected="selected"{% endif %}>{{value}}</option>
+	                {% endfor %}
+	            </select>
+	        </div>
+        </h3>
+    </div>
+
+    <div class="panel-body">
+
+		<div class="contenair">
+		    
+		    <div class="row">
+		        <div class="col-sm-3">
+		            {{ top.top_generic(metrics=metrics.mail_count, key_type=key_type, type_kb=False, title=_("Number Of Message")) }}
+		        </div>    
+		        <div class="col-sm-3">
+		            {{ top.top_generic(metrics=metrics.size_sum, key_type=key_type, type_kb=True, title=_("Size Of Message")) }}
+		        </div>    
+		        <div class="col-sm-3">
+		            {{ top.top_generic(metrics=metrics.bounce, key_type=key_type, type_kb=False, title=_("Bounce Messages")) }}
+		        </div>
+		        <div class="col-sm-3">
+		            {{ top.top_generic(metrics=metrics.files_count, key_type=key_type, type_kb=False, title=_("Number Of Files")) }}
+		        </div>    
+		    </div>
+		
+		    <div class="row">
+		        <div class="col-sm-3">
+		            {{ top.top_generic(metrics=metrics.clean, key_type=key_type, type_kb=False, title=_("Clean Messages")) }}
+		        </div>                
+		        <div class="col-sm-3">
+		            {{ top.top_generic(metrics=metrics.spam, key_type=key_type, type_kb=False, title=_("Spam Messages")) }}
+		        </div>    
+		        <div class="col-sm-3">
+		            {{ top.top_generic(metrics=metrics.virus, key_type=key_type, type_kb=False, title=_("Infected Messages")) }}
+		        </div>    
+		        <div class="col-sm-3">
+		            {{ top.top_generic(metrics=metrics.banned, key_type=key_type, type_kb=False, title=_("Banned Messages")) }}
+		        </div>
+		    </div>
+		    
+		    <div class="row">
+		        <div class="col-sm-3">
+		            {{ top.top_generic(metrics=metrics.mail_in, key_type=key_type, type_kb=False, title=_("Number Of Message Incoming")) }}        
+		        </div>    
+		        <div class="col-sm-3">
+		            {{ top.top_generic(metrics=metrics.mail_out, key_type=key_type, type_kb=False, title=_("Number Of Message Outgoing")) }}
+		        </div>    
+		        <div class="col-sm-3">
+		            {{ top.top_generic(metrics=metrics.size_avg, key_type=key_type, type_kb=True, title=_("Average Size Of Message Incoming")) }}
+		        </div>
+		        <div class="col-sm-3">
+		            {{ top.top_generic(metrics=metrics.unchecked, key_type=key_type, type_kb=False, title=_("Unchecked Messages")) }}
+		        </div>    
+		    </div>
+		</div>             
+
+    </div><!-- //panel-body -->
+</div>
+<script type="text/javascript">
+
+//{#Top {{ limit }} By {{ c.METRIC_KEY_TYPE_CHOICES_DICT[key_type] }} - From {{ first_time|datetimeformat(format='short') }} To {{ last_time|datetimeformat(format='short') }}#}
+    var title = "<span>Top {{limit}} {{_('From')}} " + moment("{{json_first_time}}").utc().format('LLL') + " {{_('To')}} " + moment("{{json_last_time}}").utc().format('LLL') + "</span>";
+    $('#generic_top_title').empty();
+    $('#generic_top_title').html(title);
+
+
+</script>

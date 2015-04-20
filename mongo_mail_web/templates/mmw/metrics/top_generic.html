@@ -1,0 +1,44 @@
+{% macro top_generic(metrics=[], key_type=0, type_kb=False, title='', available=True) %}
+
+<div class="panel panel-default">
+
+    <div class="panel-heading">        
+        <h3 class="panel-title">{{ title }}</h3>
+    </div>
+
+    <table class="table table-hover table-condensed table-striped">
+        {% if available and metrics %}
+        <tbody>
+        {% for stat in metrics %}
+            <tr>
+                <td>
+                    {% if key_type != c.METRIC_KEY_TYPE_COUNTRY %}
+                        {{ stat.0 }}
+                    {% else %}
+		                {% if stat.0 != 'NULL' %}
+		                   {{ country_name(stat.0) }}
+		                {% else %}
+		                   {{ _("Not defined Country") }}
+		                {% endif %}                             
+                    {% endif %}
+                </td>
+                <td>
+                {% if not type_kb %}
+                    {{ stat.1|numberformat }}
+                {% else %}
+                    {{ stat.1|filesizeformat }}
+                {% endif %}
+                </td>
+            </tr>    
+        {% endfor %}        
+        </tbody>
+        {% else %}
+        <tbody>
+            <tr>
+                <td colspan="2">{{ _("No datas") }}</td>
+            </tr>        
+        </tbody>
+        {% endif %}        
+    </table>
+</div>
+{% endmacro %}

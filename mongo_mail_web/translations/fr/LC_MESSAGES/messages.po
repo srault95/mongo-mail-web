@@ -1,0 +1,1764 @@
+# French translations for Mongo-Mail-Web.
+# Copyright (C) 2015 ORGANIZATION
+# This file is distributed under the same license as the Mongo-Mail-Web
+# project.
+#
+# Translators:
+# Stéphane RAULT <stephane.rault@radicalspam.org>, 2015
+msgid ""
+msgstr ""
+"Project-Id-Version:  test\n"
+"Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
+"POT-Creation-Date: 2015-04-18 15:03+0200\n"
+"PO-Revision-Date: 2015-04-18 14:38+0100\n"
+"Last-Translator: Stéphane RAULT <stephane.rault@radicalspam.org>\n"
+"Language-Team: French "
+"(http://www.transifex.com/projects/p/test-283/language/fr/)\n"
+"Plural-Forms: nplurals=2; plural=(n > 1)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 1.3\n"
+
+#: mongo_mail_web/admin.py:79
+msgid "Incoming Message"
+msgstr "Message Entrant"
+
+#: mongo_mail_web/admin.py:81
+msgid "Outgoing Message"
+msgstr "Message Sortant"
+
+#: mongo_mail_web/admin.py:107
+msgid "Yes"
+msgstr "Oui"
+
+#: mongo_mail_web/admin.py:107
+msgid "No"
+msgstr "Non"
+
+#: mongo_mail_web/admin.py:299
+msgid "Your profile has been saved"
+msgstr ""
+
+#: mongo_mail_web/admin.py:303
+msgid "form did not validate on submit"
+msgstr ""
+
+#: mongo_mail_web/admin.py:355
+msgid "Push to trash"
+msgstr ""
+
+#: mongo_mail_web/admin.py:356 mongo_mail_web/admin.py:366
+msgid "Are you sure ?"
+msgstr ""
+
+#: mongo_mail_web/admin.py:361
+#, python-format
+msgid "%(count)s records has been push to trash."
+msgstr ""
+
+#: mongo_mail_web/admin.py:365
+msgid "Restore from trash"
+msgstr ""
+
+#: mongo_mail_web/admin.py:371
+#, python-format
+msgid "%(count)s records has been restore from trash."
+msgstr ""
+
+#: mongo_mail_web/admin.py:393
+#, python-format
+msgid "Sort by %(name)s"
+msgstr ""
+
+#: mongo_mail_web/admin.py:412
+msgid "Not available function in Demo Mode."
+msgstr "Non disponible dans le mode démonstration"
+
+#: mongo_mail_web/admin.py:653
+#: mongo_mail_web/templates/mmw/admin/dashboard.html:116
+msgid "All"
+msgstr "Tous"
+
+#: mongo_mail_web/admin.py:654
+#: mongo_mail_web/templates/mmw/admin/dashboard.html:117
+msgid "Incoming"
+msgstr "Messages Entrants"
+
+#: mongo_mail_web/admin.py:655
+#: mongo_mail_web/templates/mmw/admin/dashboard.html:118
+msgid "Outgoing"
+msgstr "Messages Sortants"
+
+#: mongo_mail_web/admin.py:656
+#: mongo_mail_web/templates/mmw/admin/dashboard.html:119
+msgid "Clean"
+msgstr "Propre"
+
+#: mongo_mail_web/admin.py:657
+#: mongo_mail_web/templates/mmw/admin/dashboard-counters.html:22
+#: mongo_mail_web/templates/mmw/admin/dashboard.html:120
+msgid "Spam"
+msgstr "Pourriels"
+
+#: mongo_mail_web/admin.py:658
+#: mongo_mail_web/templates/mmw/admin/dashboard-counters.html:30
+#: mongo_mail_web/templates/mmw/admin/dashboard.html:121
+msgid "Infected"
+msgstr "Infectés"
+
+#: mongo_mail_web/admin.py:659
+#: mongo_mail_web/templates/mmw/admin/dashboard-counters.html:38
+#: mongo_mail_web/templates/mmw/admin/dashboard.html:122
+msgid "Banned"
+msgstr "Bannis"
+
+#: mongo_mail_web/admin.py:660
+msgid "Unchecked"
+msgstr "Non Vérifié"
+
+#: mongo_mail_web/admin.py:661
+#: mongo_mail_web/templates/mmw/admin/dashboard-counters.html:46
+msgid "Bounce"
+msgstr "Notifications"
+
+#: mongo_mail_web/admin.py:662 mongo_mail_web/models.py:778
+#: mongo_mail_web/templates/mmw/admin/model/message_store/show.html:61
+msgid "Files"
+msgstr "Fichiers"
+
+#: mongo_mail_web/admin.py:663 mongo_mail_web/models.py:727
+#: mongo_mail_web/templates/mmw/admin/dashboard.html:124
+#: mongo_mail_web/templates/mmw/admin/model/message_store/show.html:49
+#: mongo_mail_web/templates/mmw/admin/model/message_store/show.html:69
+msgid "Size"
+msgstr "Taille"
+
+#: mongo_mail_web/admin.py:712
+msgid "By Number - All Messages"
+msgstr ""
+
+#: mongo_mail_web/admin.py:713
+msgid "By Number - Messages Incoming"
+msgstr ""
+
+#: mongo_mail_web/admin.py:714
+msgid "By Number - Messages Outgoing"
+msgstr ""
+
+#: mongo_mail_web/admin.py:715
+msgid "By Size - All Messages"
+msgstr ""
+
+#: mongo_mail_web/admin.py:716
+msgid "By Average Size - All Messages"
+msgstr ""
+
+#: mongo_mail_web/admin.py:717
+msgid "By Number Spam - All Messages"
+msgstr ""
+
+#: mongo_mail_web/admin.py:718
+msgid "By Number Virus - All Messages"
+msgstr ""
+
+#: mongo_mail_web/admin.py:722
+msgid "All Messages - By Count"
+msgstr ""
+
+#: mongo_mail_web/admin.py:723
+msgid "Incoming - By Count"
+msgstr ""
+
+#: mongo_mail_web/admin.py:724
+msgid "Outgoing - By Count"
+msgstr ""
+
+#: mongo_mail_web/admin.py:725
+msgid "All Messages - By Sum size"
+msgstr ""
+
+#: mongo_mail_web/admin.py:726
+msgid "All Messages - By Average size"
+msgstr ""
+
+#: mongo_mail_web/admin.py:727
+msgid "All Messages - By Spam count"
+msgstr ""
+
+#: mongo_mail_web/admin.py:728
+msgid "All Messages - By Virus count"
+msgstr ""
+
+#: mongo_mail_web/admin.py:729
+msgid "All Messages - By Banned count"
+msgstr ""
+
+#: mongo_mail_web/admin.py:730
+msgid "All Messages - By Unchecked count"
+msgstr ""
+
+#: mongo_mail_web/admin.py:731
+msgid "All Messages - By Bounce count"
+msgstr ""
+
+#: mongo_mail_web/admin.py:732
+msgid "All Messages - By Files count"
+msgstr ""
+
+#: mongo_mail_web/admin.py:1014
+msgid "By Country"
+msgstr ""
+
+#: mongo_mail_web/admin.py:1034
+msgid "Way"
+msgstr ""
+
+#: mongo_mail_web/admin.py:1035 mongo_mail_web/models.py:740
+msgid "Rcpts"
+msgstr ""
+
+#: mongo_mail_web/admin.py:1036
+msgid "Filter"
+msgstr ""
+
+#: mongo_mail_web/admin.py:1068 mongo_mail_web/admin.py:1069
+#: mongo_mail_web/templates/mmw/admin/model/message_store/show.html:35
+msgid "Recipients"
+msgstr ""
+
+#: mongo_mail_web/admin.py:1107
+#, python-format
+msgid "%(count)s records reloaded."
+msgstr ""
+
+#: mongo_mail_web/admin.py:1255
+msgid "Internet Domains"
+msgstr ""
+
+#: mongo_mail_web/admin.py:1256
+msgid "Networks Allowed"
+msgstr ""
+
+#: mongo_mail_web/admin.py:1257
+msgid "Next-hop destination"
+msgstr ""
+
+#: mongo_mail_web/admin.py:1260
+msgid "Not Parsed Message"
+msgstr ""
+
+#: mongo_mail_web/admin.py:1265
+msgid "All messages"
+msgstr "Tous les Messages"
+
+#: mongo_mail_web/admin.py:1278
+#, fuzzy
+msgid "Clean Message"
+msgstr "Tous les Messages"
+
+#: mongo_mail_web/admin.py:1283
+msgid "Spam Message"
+msgstr ""
+
+#: mongo_mail_web/admin.py:1288
+msgid "Infected Message"
+msgstr ""
+
+#: mongo_mail_web/admin.py:1293
+msgid "Banned Message"
+msgstr ""
+
+#: mongo_mail_web/admin.py:1298
+msgid "Unchecked Message"
+msgstr ""
+
+#: mongo_mail_web/admin.py:1310
+msgid "Statistics - Top N"
+msgstr ""
+
+#: mongo_mail_web/admin.py:1320
+msgid "All Metrics"
+msgstr ""
+
+#: mongo_mail_web/admin.py:1324
+msgid "Group Metrics"
+msgstr ""
+
+#: mongo_mail_web/admin.py:1329
+msgid "IP Metrics"
+msgstr ""
+
+#: mongo_mail_web/admin.py:1334
+msgid "Country Metrics"
+msgstr ""
+
+#: mongo_mail_web/admin.py:1355
+msgid "Users"
+msgstr ""
+
+#: mongo_mail_web/constants.py:12
+msgid "Dashboard"
+msgstr "Tableau de Bord"
+
+#: mongo_mail_web/constants.py:16
+msgid "Settings"
+msgstr "Configuration"
+
+#: mongo_mail_web/constants.py:20
+#: mongo_mail_web/templates/mmw/admin/dashboard-panels.html:8
+msgid "Messages"
+msgstr "Messages"
+
+#: mongo_mail_web/constants.py:24
+msgid "Metrics"
+msgstr "Statistiques"
+
+#: mongo_mail_web/constants.py:28
+msgid "Trash"
+msgstr "Corbeille"
+
+#: mongo_mail_web/constants.py:83
+msgid "Default Queue for new messages"
+msgstr ""
+
+#: mongo_mail_web/constants.py:87
+msgid "In Quarantine"
+msgstr ""
+
+#: mongo_mail_web/constants.py:88
+msgid "Wait from Turing"
+msgstr ""
+
+#: mongo_mail_web/constants.py:90
+msgid "Queue for delete"
+msgstr ""
+
+#: mongo_mail_web/constants.py:136 mongo_mail_web/models.py:551
+#: mongo_mail_web/models.py:747
+msgid "IP Address"
+msgstr "Adresse IP"
+
+#: mongo_mail_web/constants.py:137
+msgid "Network Address"
+msgstr "Adresse Réseau"
+
+#: mongo_mail_web/constants.py:138
+msgid "Hostname"
+msgstr "Nom d'hôte"
+
+#: mongo_mail_web/constants.py:166
+msgid "Every 5 seconds"
+msgstr "Toutes les 5 secondes"
+
+#: mongo_mail_web/constants.py:167
+msgid "Every 30 seconds"
+msgstr "Toutes les 30 secondes"
+
+#: mongo_mail_web/constants.py:168
+msgid "Every 60 seconds"
+msgstr "Toutes les 60 secondes"
+
+#: mongo_mail_web/constants.py:169
+msgid "Disabled"
+msgstr "Désactivé"
+
+#: mongo_mail_web/constants.py:174
+msgid "Today"
+msgstr "Aujourd'hui"
+
+#: mongo_mail_web/constants.py:176
+msgid "Last 24 hours"
+msgstr "Dernières 24 heures"
+
+#: mongo_mail_web/constants.py:177
+msgid "Last Week"
+msgstr "Dernière semaine"
+
+#: mongo_mail_web/constants.py:178
+msgid "Last Month"
+msgstr "Dernier mois"
+
+#: mongo_mail_web/constants.py:179
+msgid "Last Year"
+msgstr "Dernière année"
+
+#: mongo_mail_web/countries.py:8 mongo_mail_web/countries.py:262
+msgid "Afghanistan"
+msgstr ""
+
+#: mongo_mail_web/countries.py:9 mongo_mail_web/countries.py:263
+msgid "Åland Islands"
+msgstr ""
+
+#: mongo_mail_web/countries.py:10 mongo_mail_web/countries.py:264
+msgid "Albania"
+msgstr ""
+
+#: mongo_mail_web/countries.py:11 mongo_mail_web/countries.py:265
+msgid "Algeria"
+msgstr ""
+
+#: mongo_mail_web/countries.py:12 mongo_mail_web/countries.py:266
+msgid "American Samoa"
+msgstr ""
+
+#: mongo_mail_web/countries.py:13 mongo_mail_web/countries.py:267
+msgid "Andorra"
+msgstr ""
+
+#: mongo_mail_web/countries.py:14 mongo_mail_web/countries.py:268
+msgid "Angola"
+msgstr ""
+
+#: mongo_mail_web/countries.py:15 mongo_mail_web/countries.py:269
+msgid "Anguilla"
+msgstr ""
+
+#: mongo_mail_web/countries.py:16 mongo_mail_web/countries.py:270
+msgid "Antarctica"
+msgstr ""
+
+#: mongo_mail_web/countries.py:17 mongo_mail_web/countries.py:271
+msgid "Antigua and Barbuda"
+msgstr ""
+
+#: mongo_mail_web/countries.py:18 mongo_mail_web/countries.py:272
+msgid "Argentina"
+msgstr ""
+
+#: mongo_mail_web/countries.py:19 mongo_mail_web/countries.py:273
+msgid "Armenia"
+msgstr ""
+
+#: mongo_mail_web/countries.py:20 mongo_mail_web/countries.py:274
+msgid "Aruba"
+msgstr ""
+
+#: mongo_mail_web/countries.py:21 mongo_mail_web/countries.py:275
+msgid "Australia"
+msgstr ""
+
+#: mongo_mail_web/countries.py:22 mongo_mail_web/countries.py:276
+msgid "Austria"
+msgstr ""
+
+#: mongo_mail_web/countries.py:23 mongo_mail_web/countries.py:277
+msgid "Azerbaijan"
+msgstr ""
+
+#: mongo_mail_web/countries.py:24 mongo_mail_web/countries.py:278
+msgid "Bahamas"
+msgstr ""
+
+#: mongo_mail_web/countries.py:25 mongo_mail_web/countries.py:279
+msgid "Bahrain"
+msgstr ""
+
+#: mongo_mail_web/countries.py:26 mongo_mail_web/countries.py:280
+msgid "Bangladesh"
+msgstr ""
+
+#: mongo_mail_web/countries.py:27 mongo_mail_web/countries.py:281
+msgid "Barbados"
+msgstr ""
+
+#: mongo_mail_web/countries.py:28 mongo_mail_web/countries.py:282
+msgid "Belarus"
+msgstr ""
+
+#: mongo_mail_web/countries.py:29 mongo_mail_web/countries.py:283
+msgid "Belgium"
+msgstr ""
+
+#: mongo_mail_web/countries.py:30 mongo_mail_web/countries.py:284
+msgid "Belize"
+msgstr ""
+
+#: mongo_mail_web/countries.py:31 mongo_mail_web/countries.py:285
+msgid "Benin"
+msgstr ""
+
+#: mongo_mail_web/countries.py:32 mongo_mail_web/countries.py:286
+msgid "Bermuda"
+msgstr ""
+
+#: mongo_mail_web/countries.py:33 mongo_mail_web/countries.py:287
+msgid "Bhutan"
+msgstr ""
+
+#: mongo_mail_web/countries.py:34 mongo_mail_web/countries.py:289
+msgid "Bolivia, Plurinational State of"
+msgstr ""
+
+#: mongo_mail_web/countries.py:35 mongo_mail_web/countries.py:290
+msgid "Bosnia and Herzegovina"
+msgstr ""
+
+#: mongo_mail_web/countries.py:36 mongo_mail_web/countries.py:291
+msgid "Botswana"
+msgstr ""
+
+#: mongo_mail_web/countries.py:37 mongo_mail_web/countries.py:292
+msgid "Bouvet Island"
+msgstr ""
+
+#: mongo_mail_web/countries.py:38 mongo_mail_web/countries.py:293
+msgid "Brazil"
+msgstr ""
+
+#: mongo_mail_web/countries.py:39 mongo_mail_web/countries.py:294
+msgid "British Indian Ocean Territory"
+msgstr ""
+
+#: mongo_mail_web/countries.py:40 mongo_mail_web/countries.py:296
+msgid "Brunei Darussalam"
+msgstr ""
+
+#: mongo_mail_web/countries.py:41 mongo_mail_web/countries.py:297
+msgid "Bulgaria"
+msgstr ""
+
+#: mongo_mail_web/countries.py:42 mongo_mail_web/countries.py:298
+msgid "Burkina Faso"
+msgstr ""
+
+#: mongo_mail_web/countries.py:43 mongo_mail_web/countries.py:299
+msgid "Burundi"
+msgstr ""
+
+#: mongo_mail_web/countries.py:44 mongo_mail_web/countries.py:300
+msgid "Cambodia"
+msgstr ""
+
+#: mongo_mail_web/countries.py:45 mongo_mail_web/countries.py:301
+msgid "Cameroon"
+msgstr ""
+
+#: mongo_mail_web/countries.py:46 mongo_mail_web/countries.py:302
+msgid "Canada"
+msgstr ""
+
+#: mongo_mail_web/countries.py:47 mongo_mail_web/countries.py:303
+msgid "Cape Verde"
+msgstr ""
+
+#: mongo_mail_web/countries.py:48 mongo_mail_web/countries.py:304
+msgid "Cayman Islands"
+msgstr ""
+
+#: mongo_mail_web/countries.py:49 mongo_mail_web/countries.py:305
+msgid "Central African Republic"
+msgstr ""
+
+#: mongo_mail_web/countries.py:50 mongo_mail_web/countries.py:306
+msgid "Chad"
+msgstr ""
+
+#: mongo_mail_web/countries.py:51 mongo_mail_web/countries.py:307
+msgid "Chile"
+msgstr ""
+
+#: mongo_mail_web/countries.py:52 mongo_mail_web/countries.py:308
+msgid "China"
+msgstr ""
+
+#: mongo_mail_web/countries.py:53 mongo_mail_web/countries.py:309
+msgid "Christmas Island"
+msgstr ""
+
+#: mongo_mail_web/countries.py:54 mongo_mail_web/countries.py:310
+msgid "Cocos (Keeling) Islands"
+msgstr ""
+
+#: mongo_mail_web/countries.py:55 mongo_mail_web/countries.py:311
+msgid "Colombia"
+msgstr ""
+
+#: mongo_mail_web/countries.py:56 mongo_mail_web/countries.py:312
+msgid "Comoros"
+msgstr ""
+
+#: mongo_mail_web/countries.py:57 mongo_mail_web/countries.py:313
+msgid "Congo"
+msgstr ""
+
+#: mongo_mail_web/countries.py:58 mongo_mail_web/countries.py:314
+msgid "Congo, The Democratic Republic of the"
+msgstr ""
+
+#: mongo_mail_web/countries.py:59 mongo_mail_web/countries.py:315
+msgid "Cook Islands"
+msgstr ""
+
+#: mongo_mail_web/countries.py:60 mongo_mail_web/countries.py:316
+msgid "Costa Rica"
+msgstr ""
+
+#: mongo_mail_web/countries.py:61 mongo_mail_web/countries.py:317
+msgid "Côte D'ivoire"
+msgstr ""
+
+#: mongo_mail_web/countries.py:62 mongo_mail_web/countries.py:318
+msgid "Croatia"
+msgstr ""
+
+#: mongo_mail_web/countries.py:63 mongo_mail_web/countries.py:319
+msgid "Cuba"
+msgstr ""
+
+#: mongo_mail_web/countries.py:64 mongo_mail_web/countries.py:320
+msgid "Cyprus"
+msgstr ""
+
+#: mongo_mail_web/countries.py:65 mongo_mail_web/countries.py:321
+msgid "Czech Republic"
+msgstr ""
+
+#: mongo_mail_web/countries.py:66 mongo_mail_web/countries.py:323
+msgid "Denmark"
+msgstr ""
+
+#: mongo_mail_web/countries.py:67 mongo_mail_web/countries.py:324
+msgid "Djibouti"
+msgstr ""
+
+#: mongo_mail_web/countries.py:68 mongo_mail_web/countries.py:325
+msgid "Dominica"
+msgstr ""
+
+#: mongo_mail_web/countries.py:69 mongo_mail_web/countries.py:326
+msgid "Dominican Republic"
+msgstr ""
+
+#: mongo_mail_web/countries.py:70 mongo_mail_web/countries.py:327
+msgid "Ecuador"
+msgstr ""
+
+#: mongo_mail_web/countries.py:71 mongo_mail_web/countries.py:328
+msgid "Egypt"
+msgstr ""
+
+#: mongo_mail_web/countries.py:72 mongo_mail_web/countries.py:329
+msgid "El Salvador"
+msgstr ""
+
+#: mongo_mail_web/countries.py:73 mongo_mail_web/countries.py:330
+msgid "Equatorial Guinea"
+msgstr ""
+
+#: mongo_mail_web/countries.py:74 mongo_mail_web/countries.py:331
+msgid "Eritrea"
+msgstr ""
+
+#: mongo_mail_web/countries.py:75 mongo_mail_web/countries.py:332
+msgid "Estonia"
+msgstr ""
+
+#: mongo_mail_web/countries.py:76 mongo_mail_web/countries.py:333
+msgid "Ethiopia"
+msgstr ""
+
+#: mongo_mail_web/countries.py:77 mongo_mail_web/countries.py:334
+msgid "Falkland Islands (Malvinas)"
+msgstr ""
+
+#: mongo_mail_web/countries.py:78 mongo_mail_web/countries.py:335
+msgid "Faroe Islands"
+msgstr ""
+
+#: mongo_mail_web/countries.py:79 mongo_mail_web/countries.py:337
+msgid "Fiji"
+msgstr ""
+
+#: mongo_mail_web/countries.py:80 mongo_mail_web/countries.py:338
+msgid "Finland"
+msgstr ""
+
+#: mongo_mail_web/countries.py:81 mongo_mail_web/countries.py:339
+msgid "France"
+msgstr ""
+
+#: mongo_mail_web/countries.py:82 mongo_mail_web/countries.py:340
+msgid "French Guiana"
+msgstr ""
+
+#: mongo_mail_web/countries.py:83 mongo_mail_web/countries.py:341
+msgid "French Polynesia"
+msgstr ""
+
+#: mongo_mail_web/countries.py:84 mongo_mail_web/countries.py:342
+msgid "French Southern Territories"
+msgstr ""
+
+#: mongo_mail_web/countries.py:85 mongo_mail_web/countries.py:343
+msgid "Gabon"
+msgstr ""
+
+#: mongo_mail_web/countries.py:86 mongo_mail_web/countries.py:344
+msgid "Gambia"
+msgstr ""
+
+#: mongo_mail_web/countries.py:87 mongo_mail_web/countries.py:345
+msgid "Georgia"
+msgstr ""
+
+#: mongo_mail_web/countries.py:88 mongo_mail_web/countries.py:346
+msgid "Germany"
+msgstr ""
+
+#: mongo_mail_web/countries.py:89 mongo_mail_web/countries.py:347
+msgid "Ghana"
+msgstr ""
+
+#: mongo_mail_web/countries.py:90 mongo_mail_web/countries.py:348
+msgid "Gibraltar"
+msgstr ""
+
+#: mongo_mail_web/countries.py:91 mongo_mail_web/countries.py:349
+msgid "Greece"
+msgstr ""
+
+#: mongo_mail_web/countries.py:92 mongo_mail_web/countries.py:350
+msgid "Greenland"
+msgstr ""
+
+#: mongo_mail_web/countries.py:93 mongo_mail_web/countries.py:351
+msgid "Grenada"
+msgstr ""
+
+#: mongo_mail_web/countries.py:94 mongo_mail_web/countries.py:352
+msgid "Guadeloupe"
+msgstr ""
+
+#: mongo_mail_web/countries.py:95 mongo_mail_web/countries.py:353
+msgid "Guam"
+msgstr ""
+
+#: mongo_mail_web/countries.py:96 mongo_mail_web/countries.py:354
+msgid "Guatemala"
+msgstr ""
+
+#: mongo_mail_web/countries.py:97 mongo_mail_web/countries.py:355
+msgid "Guernsey"
+msgstr ""
+
+#: mongo_mail_web/countries.py:98 mongo_mail_web/countries.py:356
+msgid "Guinea"
+msgstr ""
+
+#: mongo_mail_web/countries.py:99 mongo_mail_web/countries.py:357
+msgid "Guinea-bissau"
+msgstr ""
+
+#: mongo_mail_web/countries.py:100 mongo_mail_web/countries.py:358
+msgid "Guyana"
+msgstr ""
+
+#: mongo_mail_web/countries.py:101 mongo_mail_web/countries.py:359
+msgid "Haiti"
+msgstr ""
+
+#: mongo_mail_web/countries.py:102 mongo_mail_web/countries.py:360
+msgid "Heard Island and McDonald Islands"
+msgstr ""
+
+#: mongo_mail_web/countries.py:103 mongo_mail_web/countries.py:361
+msgid "Holy See (Vatican City State)"
+msgstr ""
+
+#: mongo_mail_web/countries.py:104 mongo_mail_web/countries.py:362
+msgid "Honduras"
+msgstr ""
+
+#: mongo_mail_web/countries.py:105 mongo_mail_web/countries.py:363
+msgid "Hong Kong"
+msgstr ""
+
+#: mongo_mail_web/countries.py:106 mongo_mail_web/countries.py:364
+msgid "Hungary"
+msgstr ""
+
+#: mongo_mail_web/countries.py:107 mongo_mail_web/countries.py:365
+msgid "Iceland"
+msgstr ""
+
+#: mongo_mail_web/countries.py:108 mongo_mail_web/countries.py:366
+msgid "India"
+msgstr ""
+
+#: mongo_mail_web/countries.py:109 mongo_mail_web/countries.py:367
+msgid "Indonesia"
+msgstr ""
+
+#: mongo_mail_web/countries.py:110 mongo_mail_web/countries.py:368
+msgid "Iran, Islamic Republic of"
+msgstr ""
+
+#: mongo_mail_web/countries.py:111 mongo_mail_web/countries.py:369
+msgid "Iraq"
+msgstr ""
+
+#: mongo_mail_web/countries.py:112 mongo_mail_web/countries.py:370
+msgid "Ireland"
+msgstr ""
+
+#: mongo_mail_web/countries.py:113 mongo_mail_web/countries.py:372
+msgid "Isle of Man"
+msgstr ""
+
+#: mongo_mail_web/countries.py:114 mongo_mail_web/countries.py:373
+msgid "Israel"
+msgstr ""
+
+#: mongo_mail_web/countries.py:115 mongo_mail_web/countries.py:374
+msgid "Italy"
+msgstr ""
+
+#: mongo_mail_web/countries.py:116 mongo_mail_web/countries.py:375
+msgid "Jamaica"
+msgstr ""
+
+#: mongo_mail_web/countries.py:117 mongo_mail_web/countries.py:376
+msgid "Japan"
+msgstr ""
+
+#: mongo_mail_web/countries.py:118 mongo_mail_web/countries.py:377
+msgid "Jersey"
+msgstr ""
+
+#: mongo_mail_web/countries.py:119 mongo_mail_web/countries.py:378
+msgid "Jordan"
+msgstr ""
+
+#: mongo_mail_web/countries.py:120 mongo_mail_web/countries.py:379
+msgid "Kazakhstan"
+msgstr ""
+
+#: mongo_mail_web/countries.py:121 mongo_mail_web/countries.py:380
+msgid "Kenya"
+msgstr ""
+
+#: mongo_mail_web/countries.py:122 mongo_mail_web/countries.py:381
+msgid "Kiribati"
+msgstr ""
+
+#: mongo_mail_web/countries.py:123 mongo_mail_web/countries.py:382
+msgid "Korea, Democratic People's Republic of"
+msgstr ""
+
+#: mongo_mail_web/countries.py:124 mongo_mail_web/countries.py:383
+msgid "Korea, Republic of"
+msgstr ""
+
+#: mongo_mail_web/countries.py:125 mongo_mail_web/countries.py:384
+msgid "Kuwait"
+msgstr ""
+
+#: mongo_mail_web/countries.py:126 mongo_mail_web/countries.py:385
+msgid "Kyrgyzstan"
+msgstr ""
+
+#: mongo_mail_web/countries.py:127 mongo_mail_web/countries.py:386
+msgid "Lao People's Democratic Republic"
+msgstr ""
+
+#: mongo_mail_web/countries.py:128 mongo_mail_web/countries.py:387
+msgid "Latvia"
+msgstr ""
+
+#: mongo_mail_web/countries.py:129 mongo_mail_web/countries.py:388
+msgid "Lebanon"
+msgstr ""
+
+#: mongo_mail_web/countries.py:130 mongo_mail_web/countries.py:389
+msgid "Lesotho"
+msgstr ""
+
+#: mongo_mail_web/countries.py:131 mongo_mail_web/countries.py:390
+msgid "Liberia"
+msgstr ""
+
+#: mongo_mail_web/countries.py:132 mongo_mail_web/countries.py:391
+msgid "Libyan Arab Jamahiriya"
+msgstr ""
+
+#: mongo_mail_web/countries.py:133 mongo_mail_web/countries.py:392
+msgid "Liechtenstein"
+msgstr ""
+
+#: mongo_mail_web/countries.py:134 mongo_mail_web/countries.py:393
+msgid "Lithuania"
+msgstr ""
+
+#: mongo_mail_web/countries.py:135 mongo_mail_web/countries.py:394
+msgid "Luxembourg"
+msgstr ""
+
+#: mongo_mail_web/countries.py:136 mongo_mail_web/countries.py:395
+msgid "Macao"
+msgstr ""
+
+#: mongo_mail_web/countries.py:137 mongo_mail_web/countries.py:396
+msgid "Macedonia, The Former Yugoslav Republic of"
+msgstr ""
+
+#: mongo_mail_web/countries.py:138 mongo_mail_web/countries.py:397
+msgid "Madagascar"
+msgstr ""
+
+#: mongo_mail_web/countries.py:139 mongo_mail_web/countries.py:398
+msgid "Malawi"
+msgstr ""
+
+#: mongo_mail_web/countries.py:140 mongo_mail_web/countries.py:399
+msgid "Malaysia"
+msgstr ""
+
+#: mongo_mail_web/countries.py:141 mongo_mail_web/countries.py:400
+msgid "Maldives"
+msgstr ""
+
+#: mongo_mail_web/countries.py:142 mongo_mail_web/countries.py:401
+msgid "Mali"
+msgstr ""
+
+#: mongo_mail_web/countries.py:143 mongo_mail_web/countries.py:402
+msgid "Malta"
+msgstr ""
+
+#: mongo_mail_web/countries.py:144 mongo_mail_web/countries.py:403
+msgid "Marshall Islands"
+msgstr ""
+
+#: mongo_mail_web/countries.py:145 mongo_mail_web/countries.py:404
+msgid "Martinique"
+msgstr ""
+
+#: mongo_mail_web/countries.py:146 mongo_mail_web/countries.py:405
+msgid "Mauritania"
+msgstr ""
+
+#: mongo_mail_web/countries.py:147 mongo_mail_web/countries.py:406
+msgid "Mauritius"
+msgstr ""
+
+#: mongo_mail_web/countries.py:148 mongo_mail_web/countries.py:407
+msgid "Mayotte"
+msgstr ""
+
+#: mongo_mail_web/countries.py:149 mongo_mail_web/countries.py:408
+msgid "Mexico"
+msgstr ""
+
+#: mongo_mail_web/countries.py:150 mongo_mail_web/countries.py:409
+msgid "Micronesia, Federated States of"
+msgstr ""
+
+#: mongo_mail_web/countries.py:151 mongo_mail_web/countries.py:410
+msgid "Moldova, Republic of"
+msgstr ""
+
+#: mongo_mail_web/countries.py:152 mongo_mail_web/countries.py:411
+msgid "Monaco"
+msgstr ""
+
+#: mongo_mail_web/countries.py:153 mongo_mail_web/countries.py:412
+msgid "Mongolia"
+msgstr ""
+
+#: mongo_mail_web/countries.py:154 mongo_mail_web/countries.py:413
+msgid "Montenegro"
+msgstr ""
+
+#: mongo_mail_web/countries.py:155 mongo_mail_web/countries.py:414
+msgid "Montserrat"
+msgstr ""
+
+#: mongo_mail_web/countries.py:156 mongo_mail_web/countries.py:415
+msgid "Morocco"
+msgstr ""
+
+#: mongo_mail_web/countries.py:157 mongo_mail_web/countries.py:416
+msgid "Mozambique"
+msgstr ""
+
+#: mongo_mail_web/countries.py:158 mongo_mail_web/countries.py:417
+msgid "Myanmar"
+msgstr ""
+
+#: mongo_mail_web/countries.py:159 mongo_mail_web/countries.py:418
+msgid "Namibia"
+msgstr ""
+
+#: mongo_mail_web/countries.py:160 mongo_mail_web/countries.py:419
+msgid "Nauru"
+msgstr ""
+
+#: mongo_mail_web/countries.py:161 mongo_mail_web/countries.py:420
+msgid "Nepal"
+msgstr ""
+
+#: mongo_mail_web/countries.py:162 mongo_mail_web/countries.py:421
+msgid "Netherlands"
+msgstr ""
+
+#: mongo_mail_web/countries.py:163 mongo_mail_web/countries.py:422
+msgid "Netherlands Antilles"
+msgstr ""
+
+#: mongo_mail_web/countries.py:164 mongo_mail_web/countries.py:423
+msgid "New Caledonia"
+msgstr ""
+
+#: mongo_mail_web/countries.py:165 mongo_mail_web/countries.py:424
+msgid "New Zealand"
+msgstr ""
+
+#: mongo_mail_web/countries.py:166 mongo_mail_web/countries.py:425
+msgid "Nicaragua"
+msgstr ""
+
+#: mongo_mail_web/countries.py:167 mongo_mail_web/countries.py:426
+msgid "Niger"
+msgstr ""
+
+#: mongo_mail_web/countries.py:168 mongo_mail_web/countries.py:427
+msgid "Nigeria"
+msgstr ""
+
+#: mongo_mail_web/countries.py:169 mongo_mail_web/countries.py:428
+msgid "Niue"
+msgstr ""
+
+#: mongo_mail_web/countries.py:170 mongo_mail_web/countries.py:429
+msgid "Norfolk Island"
+msgstr ""
+
+#: mongo_mail_web/countries.py:171 mongo_mail_web/countries.py:430
+msgid "Northern Mariana Islands"
+msgstr ""
+
+#: mongo_mail_web/countries.py:172 mongo_mail_web/countries.py:431
+msgid "Norway"
+msgstr ""
+
+#: mongo_mail_web/countries.py:173 mongo_mail_web/countries.py:433
+msgid "Oman"
+msgstr ""
+
+#: mongo_mail_web/countries.py:174 mongo_mail_web/countries.py:434
+msgid "Pakistan"
+msgstr ""
+
+#: mongo_mail_web/countries.py:175 mongo_mail_web/countries.py:435
+msgid "Palau"
+msgstr ""
+
+#: mongo_mail_web/countries.py:176 mongo_mail_web/countries.py:436
+msgid "Palestinian Territory, Occupied"
+msgstr ""
+
+#: mongo_mail_web/countries.py:177 mongo_mail_web/countries.py:437
+msgid "Panama"
+msgstr ""
+
+#: mongo_mail_web/countries.py:178 mongo_mail_web/countries.py:438
+msgid "Papua New Guinea"
+msgstr ""
+
+#: mongo_mail_web/countries.py:179 mongo_mail_web/countries.py:439
+msgid "Paraguay"
+msgstr ""
+
+#: mongo_mail_web/countries.py:180 mongo_mail_web/countries.py:440
+msgid "Peru"
+msgstr ""
+
+#: mongo_mail_web/countries.py:181 mongo_mail_web/countries.py:441
+msgid "Philippines"
+msgstr ""
+
+#: mongo_mail_web/countries.py:182 mongo_mail_web/countries.py:442
+msgid "Pitcairn"
+msgstr ""
+
+#: mongo_mail_web/countries.py:183 mongo_mail_web/countries.py:444
+msgid "Poland"
+msgstr ""
+
+#: mongo_mail_web/countries.py:184 mongo_mail_web/countries.py:445
+msgid "Portugal"
+msgstr ""
+
+#: mongo_mail_web/countries.py:185 mongo_mail_web/countries.py:447
+msgid "Puerto Rico"
+msgstr ""
+
+#: mongo_mail_web/countries.py:186 mongo_mail_web/countries.py:448
+msgid "Qatar"
+msgstr ""
+
+#: mongo_mail_web/countries.py:187 mongo_mail_web/countries.py:451
+msgid "Réunion"
+msgstr ""
+
+#: mongo_mail_web/countries.py:188 mongo_mail_web/countries.py:452
+msgid "Romania"
+msgstr ""
+
+#: mongo_mail_web/countries.py:189 mongo_mail_web/countries.py:453
+msgid "Russian Federation"
+msgstr ""
+
+#: mongo_mail_web/countries.py:190 mongo_mail_web/countries.py:454
+msgid "Rwanda"
+msgstr ""
+
+#: mongo_mail_web/countries.py:191 mongo_mail_web/countries.py:455
+msgid "Saint Barthélemy"
+msgstr ""
+
+#: mongo_mail_web/countries.py:192 mongo_mail_web/countries.py:456
+msgid "Saint Helena"
+msgstr ""
+
+#: mongo_mail_web/countries.py:193 mongo_mail_web/countries.py:457
+msgid "Saint Kitts and Nevis"
+msgstr ""
+
+#: mongo_mail_web/countries.py:194 mongo_mail_web/countries.py:458
+msgid "Saint Lucia"
+msgstr ""
+
+#: mongo_mail_web/countries.py:195 mongo_mail_web/countries.py:459
+msgid "Saint Martin"
+msgstr ""
+
+#: mongo_mail_web/countries.py:196 mongo_mail_web/countries.py:460
+msgid "Saint Pierre and Miquelon"
+msgstr ""
+
+#: mongo_mail_web/countries.py:197 mongo_mail_web/countries.py:461
+msgid "Saint Vincent and the Grenadines"
+msgstr ""
+
+#: mongo_mail_web/countries.py:198 mongo_mail_web/countries.py:462
+msgid "Samoa"
+msgstr ""
+
+#: mongo_mail_web/countries.py:199 mongo_mail_web/countries.py:463
+msgid "San Marino"
+msgstr ""
+
+#: mongo_mail_web/countries.py:200 mongo_mail_web/countries.py:464
+msgid "Sao Tome and Principe"
+msgstr ""
+
+#: mongo_mail_web/countries.py:201 mongo_mail_web/countries.py:465
+msgid "Saudi Arabia"
+msgstr ""
+
+#: mongo_mail_web/countries.py:202 mongo_mail_web/countries.py:466
+msgid "Senegal"
+msgstr ""
+
+#: mongo_mail_web/countries.py:203 mongo_mail_web/countries.py:467
+msgid "Serbia"
+msgstr ""
+
+#: mongo_mail_web/countries.py:204 mongo_mail_web/countries.py:468
+msgid "Seychelles"
+msgstr ""
+
+#: mongo_mail_web/countries.py:205 mongo_mail_web/countries.py:469
+msgid "Sierra Leone"
+msgstr ""
+
+#: mongo_mail_web/countries.py:206 mongo_mail_web/countries.py:470
+msgid "Singapore"
+msgstr ""
+
+#: mongo_mail_web/countries.py:207 mongo_mail_web/countries.py:471
+msgid "Slovakia"
+msgstr ""
+
+#: mongo_mail_web/countries.py:208 mongo_mail_web/countries.py:472
+msgid "Slovenia"
+msgstr ""
+
+#: mongo_mail_web/countries.py:209 mongo_mail_web/countries.py:473
+msgid "Solomon Islands"
+msgstr ""
+
+#: mongo_mail_web/countries.py:210 mongo_mail_web/countries.py:474
+msgid "Somalia"
+msgstr ""
+
+#: mongo_mail_web/countries.py:211 mongo_mail_web/countries.py:475
+msgid "South Africa"
+msgstr ""
+
+#: mongo_mail_web/countries.py:212 mongo_mail_web/countries.py:476
+msgid "South Georgia and the South Sandwich Islands"
+msgstr ""
+
+#: mongo_mail_web/countries.py:213 mongo_mail_web/countries.py:477
+msgid "Spain"
+msgstr ""
+
+#: mongo_mail_web/countries.py:214 mongo_mail_web/countries.py:478
+msgid "Sri Lanka"
+msgstr ""
+
+#: mongo_mail_web/countries.py:215 mongo_mail_web/countries.py:479
+msgid "Sudan"
+msgstr ""
+
+#: mongo_mail_web/countries.py:216 mongo_mail_web/countries.py:480
+msgid "Suriname"
+msgstr ""
+
+#: mongo_mail_web/countries.py:217 mongo_mail_web/countries.py:481
+msgid "Svalbard and Jan Mayen"
+msgstr ""
+
+#: mongo_mail_web/countries.py:218 mongo_mail_web/countries.py:482
+msgid "Swaziland"
+msgstr ""
+
+#: mongo_mail_web/countries.py:219 mongo_mail_web/countries.py:483
+msgid "Sweden"
+msgstr ""
+
+#: mongo_mail_web/countries.py:220 mongo_mail_web/countries.py:484
+msgid "Switzerland"
+msgstr ""
+
+#: mongo_mail_web/countries.py:221 mongo_mail_web/countries.py:485
+msgid "Syrian Arab Republic"
+msgstr ""
+
+#: mongo_mail_web/countries.py:222 mongo_mail_web/countries.py:486
+msgid "Taiwan, Province of China"
+msgstr ""
+
+#: mongo_mail_web/countries.py:223 mongo_mail_web/countries.py:487
+msgid "Tajikistan"
+msgstr ""
+
+#: mongo_mail_web/countries.py:224 mongo_mail_web/countries.py:488
+msgid "Tanzania, United Republic of"
+msgstr ""
+
+#: mongo_mail_web/countries.py:225 mongo_mail_web/countries.py:489
+msgid "Thailand"
+msgstr ""
+
+#: mongo_mail_web/countries.py:226 mongo_mail_web/countries.py:492
+msgid "Timor-leste"
+msgstr ""
+
+#: mongo_mail_web/countries.py:227 mongo_mail_web/countries.py:493
+msgid "Togo"
+msgstr ""
+
+#: mongo_mail_web/countries.py:228 mongo_mail_web/countries.py:494
+msgid "Tokelau"
+msgstr ""
+
+#: mongo_mail_web/countries.py:229 mongo_mail_web/countries.py:495
+msgid "Tonga"
+msgstr ""
+
+#: mongo_mail_web/countries.py:230 mongo_mail_web/countries.py:496
+msgid "Trinidad and Tobago"
+msgstr ""
+
+#: mongo_mail_web/countries.py:231 mongo_mail_web/countries.py:497
+msgid "Tunisia"
+msgstr ""
+
+#: mongo_mail_web/countries.py:232 mongo_mail_web/countries.py:498
+msgid "Turkey"
+msgstr ""
+
+#: mongo_mail_web/countries.py:233 mongo_mail_web/countries.py:499
+msgid "Turkmenistan"
+msgstr ""
+
+#: mongo_mail_web/countries.py:234 mongo_mail_web/countries.py:500
+msgid "Turks and Caicos Islands"
+msgstr ""
+
+#: mongo_mail_web/countries.py:235 mongo_mail_web/countries.py:501
+msgid "Tuvalu"
+msgstr ""
+
+#: mongo_mail_web/countries.py:236 mongo_mail_web/countries.py:503
+msgid "Uganda"
+msgstr ""
+
+#: mongo_mail_web/countries.py:237 mongo_mail_web/countries.py:504
+msgid "Ukraine"
+msgstr ""
+
+#: mongo_mail_web/countries.py:238 mongo_mail_web/countries.py:505
+msgid "United Arab Emirates"
+msgstr ""
+
+#: mongo_mail_web/countries.py:239 mongo_mail_web/countries.py:506
+msgid "United Kingdom"
+msgstr ""
+
+#: mongo_mail_web/countries.py:240 mongo_mail_web/countries.py:508
+msgid "United States"
+msgstr ""
+
+#: mongo_mail_web/countries.py:241 mongo_mail_web/countries.py:509
+msgid "United States Minor Outlying Islands"
+msgstr ""
+
+#: mongo_mail_web/countries.py:242 mongo_mail_web/countries.py:510
+msgid "Uruguay"
+msgstr ""
+
+#: mongo_mail_web/countries.py:243 mongo_mail_web/countries.py:511
+msgid "Uzbekistan"
+msgstr ""
+
+#: mongo_mail_web/countries.py:244 mongo_mail_web/countries.py:512
+msgid "Vanuatu"
+msgstr ""
+
+#: mongo_mail_web/countries.py:245 mongo_mail_web/countries.py:513
+msgid "Venezuela, Bolivarian Republic of"
+msgstr ""
+
+#: mongo_mail_web/countries.py:246 mongo_mail_web/countries.py:514
+msgid "Viet Nam"
+msgstr ""
+
+#: mongo_mail_web/countries.py:247 mongo_mail_web/countries.py:515
+msgid "Virgin Islands, British"
+msgstr ""
+
+#: mongo_mail_web/countries.py:248 mongo_mail_web/countries.py:516
+msgid "Virgin Islands, U.s."
+msgstr ""
+
+#: mongo_mail_web/countries.py:249 mongo_mail_web/countries.py:517
+msgid "Wallis and Futuna"
+msgstr ""
+
+#: mongo_mail_web/countries.py:250 mongo_mail_web/countries.py:518
+msgid "Western Sahara"
+msgstr ""
+
+#: mongo_mail_web/countries.py:251 mongo_mail_web/countries.py:519
+msgid "Yemen"
+msgstr ""
+
+#: mongo_mail_web/countries.py:252 mongo_mail_web/countries.py:520
+msgid "Zambia"
+msgstr ""
+
+#: mongo_mail_web/countries.py:253 mongo_mail_web/countries.py:521
+msgid "Zimbabwe"
+msgstr ""
+
+#: mongo_mail_web/countries.py:288
+msgid "Bolivarian Republic of Venezuela"
+msgstr ""
+
+#: mongo_mail_web/countries.py:295
+msgid "British Virgin Islands"
+msgstr ""
+
+#: mongo_mail_web/countries.py:322
+msgid "Democratic People's Republic of Korea"
+msgstr ""
+
+#: mongo_mail_web/countries.py:336
+msgid "Federated States of Micronesia"
+msgstr ""
+
+#: mongo_mail_web/countries.py:371
+msgid "Islamic Republic of Iran"
+msgstr ""
+
+#: mongo_mail_web/countries.py:432
+msgid "Occupied Palestinian Territory"
+msgstr ""
+
+#: mongo_mail_web/countries.py:443
+msgid "Plurinational State of Bolivia"
+msgstr ""
+
+#: mongo_mail_web/countries.py:446
+msgid "Province of China Taiwan"
+msgstr ""
+
+#: mongo_mail_web/countries.py:449
+msgid "Republic of Korea"
+msgstr ""
+
+#: mongo_mail_web/countries.py:450
+msgid "Republic of Moldova"
+msgstr ""
+
+#: mongo_mail_web/countries.py:490
+msgid "The Democratic Republic of the Congo"
+msgstr ""
+
+#: mongo_mail_web/countries.py:491
+msgid "The Former Yugoslav Republic of Macedonia"
+msgstr ""
+
+#: mongo_mail_web/countries.py:502
+msgid "U.s. Virgin Islands"
+msgstr ""
+
+#: mongo_mail_web/countries.py:507
+msgid "United Republic of Tanzania"
+msgstr ""
+
+#: mongo_mail_web/models.py:297
+#, python-format
+msgid "Adresse IP invalide: %s"
+msgstr ""
+
+#: mongo_mail_web/models.py:305
+#, python-format
+msgid "Internet Domain: %s"
+msgstr ""
+
+#: mongo_mail_web/models.py:311
+#, python-format
+msgid "Invalid Email Address: %s"
+msgstr "Email invalide: %s"
+
+#: mongo_mail_web/models.py:359
+#, python-format
+msgid "Invalid Hostname %s"
+msgstr "Domaine invalide: %s"
+
+#: mongo_mail_web/models.py:552
+msgid "Enter an IP address. ex: 192.168.1.20 in ipv4 or ipv6 format"
+msgstr ""
+
+#: mongo_mail_web/models.py:661
+msgid "Unsent"
+msgstr ""
+
+#: mongo_mail_web/models.py:662
+msgid "Sent"
+msgstr ""
+
+#: mongo_mail_web/models.py:663
+msgid "Unrecoverable error"
+msgstr ""
+
+#: mongo_mail_web/models.py:664
+msgid "Temporary error"
+msgstr ""
+
+#: mongo_mail_web/models.py:665
+msgid "Turing canceled"
+msgstr ""
+
+#: mongo_mail_web/models.py:668
+msgid "Validation Date"
+msgstr ""
+
+#: mongo_mail_web/models.py:699
+msgid "Group"
+msgstr ""
+
+#: mongo_mail_web/models.py:702
+msgid "Domain"
+msgstr ""
+
+#: mongo_mail_web/models.py:709
+msgid "Incoming message"
+msgstr ""
+
+#: mongo_mail_web/models.py:710
+msgid "Incoming or Outgoing Message"
+msgstr ""
+
+#: mongo_mail_web/models.py:714
+msgid "Sent Date"
+msgstr ""
+
+#: mongo_mail_web/models.py:719
+#: mongo_mail_web/templates/mmw/admin/model/message_store/show.html:23
+msgid "Received Date"
+msgstr ""
+
+#: mongo_mail_web/models.py:729
+#: mongo_mail_web/templates/mmw/admin/model/message_store/show.html:27
+msgid "Subject"
+msgstr ""
+
+#: mongo_mail_web/models.py:733
+#: mongo_mail_web/templates/mmw/admin/model/message_store/show.html:31
+msgid "Sender"
+msgstr ""
+
+#: mongo_mail_web/models.py:737
+msgid "Recipients(s)"
+msgstr ""
+
+#: mongo_mail_web/models.py:741
+msgid "Number of recipients"
+msgstr ""
+
+#: mongo_mail_web/models.py:749
+#: mongo_mail_web/templates/mmw/admin/model/message_store/show.html:57
+msgid "Country"
+msgstr ""
+
+#: mongo_mail_web/models.py:750
+msgid "Country based on ip address of sender smtp"
+msgstr ""
+
+#: mongo_mail_web/models.py:755
+msgid "Bounce ?"
+msgstr ""
+
+#: mongo_mail_web/models.py:758
+msgid "Spam ?"
+msgstr ""
+
+#: mongo_mail_web/models.py:761
+msgid "Infected ?"
+msgstr ""
+
+#: mongo_mail_web/models.py:764
+msgid "Banned ?"
+msgstr ""
+
+#: mongo_mail_web/models.py:767
+msgid "Checked ?"
+msgstr ""
+
+#: mongo_mail_web/models.py:779
+msgid "Number of attachments in message"
+msgstr ""
+
+#: mongo_mail_web/settings.py:44
+msgid "English"
+msgstr "Anglais"
+
+#: mongo_mail_web/settings.py:45
+msgid "French"
+msgstr "Français"
+
+#: mongo_mail_web/templates/mmw/_login_form.html:36
+msgid "Please authenticate"
+msgstr "Merci de vous authentifier"
+
+#: mongo_mail_web/templates/mmw/_login_form.html:74
+msgid "Register"
+msgstr ""
+
+#: mongo_mail_web/templates/mmw/_login_form.html:77
+msgid "Forgot password"
+msgstr "Récupérer le mot de passe"
+
+#: mongo_mail_web/templates/mmw/_login_form.html:80
+msgid "Confirm account"
+msgstr ""
+
+#: mongo_mail_web/templates/mmw/base_login.html:12
+msgid "Mongo Mail Authentication"
+msgstr "Mongo Mail Authentification"
+
+#: mongo_mail_web/templates/mmw/user_menu.html:23
+msgid "Logout"
+msgstr "Se déconnecter"
+
+#: mongo_mail_web/templates/mmw/user_menu.html:24
+msgid "Change Password"
+msgstr "Changer le mot de passe"
+
+#: mongo_mail_web/templates/mmw/admin/dashboard-counters.html:6
+msgid "All Messages"
+msgstr "Tous les Messages"
+
+#: mongo_mail_web/templates/mmw/admin/dashboard-counters.html:14
+msgid "Total Size"
+msgstr "Taille Totale"
+
+#: mongo_mail_web/templates/mmw/admin/dashboard-panels.html:9
+msgid "World Map"
+msgstr "Répartition Géographique"
+
+#: mongo_mail_web/templates/mmw/admin/dashboard-panels.html:10
+msgid "All Top"
+msgstr "Tous les Tops"
+
+#: mongo_mail_web/templates/mmw/admin/dashboard-panels.html:41
+msgid "Aggregation for this period"
+msgstr "Agrégation pour cette période"
+
+#: mongo_mail_web/templates/mmw/admin/dashboard.html:123
+msgid "Bounced"
+msgstr "Notifications"
+
+#: mongo_mail_web/templates/mmw/admin/model/list.html:111
+#: mongo_mail_web/templates/mmw/admin/model/list.html:131
+#: mongo_mail_web/templates/mmw/admin/model/message_store/list.html:139
+msgid "Show record"
+msgstr ""
+
+#: mongo_mail_web/templates/mmw/admin/model/list.html:121
+msgid "Are you sure you want to delete this record?"
+msgstr "Etes-vous sûr de vouloir supprimer cet enregistrement ?"
+
+#: mongo_mail_web/templates/mmw/admin/model/list.html:126
+msgid "Edit record"
+msgstr "Editer le document"
+
+#: mongo_mail_web/templates/mmw/admin/model/message_store/list.html:17
+msgid "List"
+msgstr "Liste"
+
+#: mongo_mail_web/templates/mmw/admin/model/message_store/list.html:21
+msgid "Create new record"
+msgstr "Créer une nouvelle entrée"
+
+#: mongo_mail_web/templates/mmw/admin/model/message_store/list.html:21
+msgid "Create"
+msgstr "Création"
+
+#: mongo_mail_web/templates/mmw/admin/model/message_store/list.html:57
+msgid "Select all records"
+msgstr ""
+
+#: mongo_mail_web/templates/mmw/admin/model/message_store/list.html:101
+msgid "Select record"
+msgstr ""
+
+#: mongo_mail_web/templates/mmw/admin/model/message_store/list.html:173
+msgid "Please select at least one record."
+msgstr ""
+
+#: mongo_mail_web/templates/mmw/admin/model/message_store/show.html:6
+msgid "Resume"
+msgstr ""
+
+#: mongo_mail_web/templates/mmw/admin/model/message_store/show.html:11
+msgid "Key"
+msgstr ""
+
+#: mongo_mail_web/templates/mmw/admin/model/message_store/show.html:19
+msgid "Sent date"
+msgstr ""
+
+#: mongo_mail_web/templates/mmw/admin/model/message_store/show.html:53
+msgid "From IP Address"
+msgstr ""
+
+#: mongo_mail_web/templates/mmw/admin/model/message_store/show.html:68
+msgid "Name"
+msgstr ""
+
+#: mongo_mail_web/templates/mmw/admin/model/message_store/show.html:70
+msgid "Type"
+msgstr ""
+
+#: mongo_mail_web/templates/mmw/admin/model/message_store/show.html:89
+msgid "Headers"
+msgstr ""
+
+#: mongo_mail_web/templates/mmw/admin/model/message_store/show.html:105
+#, fuzzy
+msgid "Message"
+msgstr "Tous les Messages"
+
+#: mongo_mail_web/templates/mmw/metrics/multi-top-generic.html:26
+msgid "Number Of Message"
+msgstr ""
+
+#: mongo_mail_web/templates/mmw/metrics/multi-top-generic.html:29
+msgid "Size Of Message"
+msgstr ""
+
+#: mongo_mail_web/templates/mmw/metrics/multi-top-generic.html:32
+msgid "Bounce Messages"
+msgstr ""
+
+#: mongo_mail_web/templates/mmw/metrics/multi-top-generic.html:35
+msgid "Number Of Files"
+msgstr ""
+
+#: mongo_mail_web/templates/mmw/metrics/multi-top-generic.html:41
+msgid "Clean Messages"
+msgstr ""
+
+#: mongo_mail_web/templates/mmw/metrics/multi-top-generic.html:44
+msgid "Spam Messages"
+msgstr ""
+
+#: mongo_mail_web/templates/mmw/metrics/multi-top-generic.html:47
+msgid "Infected Messages"
+msgstr ""
+
+#: mongo_mail_web/templates/mmw/metrics/multi-top-generic.html:50
+msgid "Banned Messages"
+msgstr ""
+
+#: mongo_mail_web/templates/mmw/metrics/multi-top-generic.html:56
+msgid "Number Of Message Incoming"
+msgstr ""
+
+#: mongo_mail_web/templates/mmw/metrics/multi-top-generic.html:59
+msgid "Number Of Message Outgoing"
+msgstr ""
+
+#: mongo_mail_web/templates/mmw/metrics/multi-top-generic.html:62
+msgid "Average Size Of Message Incoming"
+msgstr ""
+
+#: mongo_mail_web/templates/mmw/metrics/multi-top-generic.html:65
+msgid "Unchecked Messages"
+msgstr ""
+
+#: mongo_mail_web/templates/mmw/metrics/multi-top-generic.html:75
+#: mongo_mail_web/templates/mmw/metrics/top_country.html:67
+msgid "From"
+msgstr ""
+
+#: mongo_mail_web/templates/mmw/metrics/multi-top-generic.html:75
+#: mongo_mail_web/templates/mmw/metrics/top_country.html:67
+msgid "To"
+msgstr ""
+
+#: mongo_mail_web/templates/mmw/metrics/top_country.html:33
+#: mongo_mail_web/templates/mmw/metrics/top_generic.html:21
+msgid "Not defined Country"
+msgstr ""
+
+#: mongo_mail_web/templates/mmw/metrics/top_generic.html:38
+msgid "No datas"
+msgstr ""
+
+#: mongo_mail_web/templates/mmw/security/change_password.html:5
+msgid "Change password"
+msgstr ""
+
+#: mongo_mail_web/templates/mmw/security/change_password.html:16
+msgid "Close"
+msgstr ""
+
+#~ msgid "%s records has been push to trash."
+#~ msgstr ""
+
+#~ msgid "%s records has been restore from trash."
+#~ msgstr ""
+
+#~ msgid "%s records reloaded."
+#~ msgstr ""
+

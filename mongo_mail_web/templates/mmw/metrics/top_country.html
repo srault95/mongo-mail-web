@@ -1,0 +1,107 @@
+<div class="panel panel-default">
+
+    <div class="panel-heading">        
+        <h3 class="panel-title">
+            <a type="button" class="btn btn-default btn-xs" href="#" id="metric_country_refresh"><i class="fa fa-refresh fa-fw"></i></a>
+            <span id="country_title"></span>
+            <div class="pull-right">
+                <select id="country_current_field">
+                    {% for key, value in fields_choices %}
+                          <option value="{{key}}" {% if key == field %}selected="selected"{% endif %}>{{value}}</option>
+                    {% endfor %}
+                </select>
+            </div>
+        </h3>
+    </div>
+
+    <div class="panel-body collapse.in" id="metric_country_collapse">
+
+		<div class="contenair">
+		<div class="row">
+		    <div class="col-md-6">
+		       <div id="world-map" style="height:420px; width: 90%"></div>
+		    </div>
+		    <div id="map" class="col-md-6">
+		        <h3>{{ title }} - <small>{{ subtitle }}</small></h3>
+		        <ol>        
+		        {% for stat in metrics %}
+		                <li>
+		                     <h4>
+		                     {% if stat.0 and stat.0 != 'NULL' %}
+		                        {{ country_name(stat.0) }}
+		                     {% else %}
+		                        {{ _("Not defined Country") }}
+		                     {% endif %}		                     
+		                     <span class="pull-right">
+		                        {% if type_kb %}
+                                    {{ stat.1|filesizeformat }}
+                                {% else %}
+                                    {{ stat.1|numberformat }}
+                                {% endif %}
+		                      </span>
+		                     </h4>
+		                </li>
+		        {% endfor %}
+		        </ol>
+		    </div>
+		    
+		</div><!-- //row -->
+		</div><!-- //contenair -->
+    </div><!-- //panel-body -->
+</div>
+
+<script type="text/javascript">
+
+    // convert [["FR", 500], ["US", 372] -> // → { 'FR': 500, 'US': 372 }
+    var gdpData = _.zipObject({{ metrics[:10]|tojson }});
+    /*
+    - converti 
+          [{"_id": "US", "value": 245.0}, {"_id": "CN", "value": 56.0}]
+    - en
+          { 'US': 245.0, 'CN': 56.0 }
+    
+    */
+    //var gdpData = _.zipObject(_.map(_.sortByAll({{ metrics[:10]|tojson }}), _.values));
+    //console.log(gdpData);
+    
+    var title = "<span>{{_('From')}} " + moment("{{json_first_time}}").utc().format('LLL') + " {{_('To')}} " + moment("{{json_last_time}}").utc().format('LLL') + "</span>";
+    $('#country_title').empty();
+    $('#country_title').html(title);
+    
+    $('#world-map').empty();
+    
+    $('#world-map').vectorMap({
+        map: 'world_mill_en',
+        backgroundColor: 'transparent',
+        regionStyle: {
+           initial: {
+            stroke: '#404040',
+            'stroke-width': 0.5,
+            'stroke-opacity': 1
+           }
+        },            
+        series: {
+            regions: [{
+                values: gdpData,
+                //scale: ['#C8EEFF', '#0071A4'],
+                scale: ['#ffdbdb', '#cf5044'], //couleurs de départ -> couleur de fin
+                normalizeFunction: 'polynomial'
+            }]
+        },
+        onRegionTipShow: function(event, label, code) {
+            //console.log('code : ', code);
+            //console.log('label : ', label);
+            var count = gdpData[code];
+            //console.log('count : ', count);
+            if (!count) {
+                count = 0;
+            }
+            label.html(
+             '' + label.html() + '<br/>' + 'Messages: ' + count.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")
+            );
+        }
+        //onRegionClick
+    });     
+    
+
+</script>

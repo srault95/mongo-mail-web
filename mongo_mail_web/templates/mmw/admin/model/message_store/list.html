@@ -1,0 +1,215 @@
+{% extends 'admin/master.html' %}
+{% import 'admin/lib.html' as lib with context %}
+{% import 'admin/static.html' as admin_static with context%}
+{% import 'admin/model/layout.html' as model_layout with context %}
+{% import 'admin/actions.html' as actionlib with context %}
+
+{% block head %}
+    {{ super() }}
+    {{ lib.form_css() }}
+{% endblock %}
+
+{% block body %}
+    <h4><i class="fa fa-arrow-right"></i> {{ admin_view.name }}</h4>
+    {% block model_menu_bar %}
+    <ul class="nav nav-tabs actions-nav">
+        <li class="active">
+            <a href="javascript:void(0)">{{ _('List') }} ({{ count }})</a>
+        </li>
+        {% if admin_view.can_create %}
+        <li>
+            <a href="{{ get_url('.create_view', url=return_url) }}" title="{{ _('Create new record') }}">{{ _('Create') }}</a>
+        </li>
+        {% endif %}
+
+        {% if filters %}
+        <li class="dropdown">
+            {{ model_layout.filter_options() }}
+        </li>
+        {% endif %}
+
+        {% if actions %}
+        <li class="dropdown">
+            {{ actionlib.dropdown(actions) }}
+        </li>
+        {% endif %}
+
+        {% if search_supported %}
+        <li>
+            {{ model_layout.search_form() }}
+        </li>
+        {% endif %}
+    </ul>
+    {% endblock %}
+
+    {% if filters %}
+        {{ model_layout.filter_form() }}
+        <div class="clearfix"></div>
+    {% endif %}
+
+    {% block model_list_table %}
+    <table class="table table-striped table-bordered table-hover model-list">
+        <thead>
+            <tr>
+                {% block list_header scoped %}
+                    {% if actions %}
+                    <th class="list-checkbox-column">
+                        <input type="checkbox" name="rowtoggle" class="action-rowtoggle" title="{{ _('Select all records') }}" />
+                    </th>
+                    {% endif %}
+                    <th>&nbsp;</th>                    
+                    {% block list_row_actions_header %}
+                    {#<th class="col-md-1">&nbsp;</th>#}
+                    {% endblock %}
+                    {% set column = 0 %}
+                    {% for c, name in list_columns %}
+                    <th class="column-header" {{ admin_view.get_column_style(c) }}>
+                        {% if admin_view.is_sortable(c) %}
+                            {% if sort_column == column %}
+                                <a href="{{ sort_url(column, True) }}" data-role="tooltip" title="{{ get_column_title_field(c) }}">
+                                    {{ name }}
+                                    {% if sort_desc %}
+                                        <span class="glyphicon glyphicon-chevron-up"></span>
+                                    {% else %}
+                                        <span class="glyphicon glyphicon-chevron-down"></span>
+                                    {% endif %}
+                                </a>
+                            {% else %}
+                                <a href="{{ sort_url(column) }}" data-role="tooltip" title="{{ get_column_title_field(c) }}">{{ name }}</a>
+                            {% endif %}
+                        {% else %}
+                            {{ name }}
+                        {% endif %}
+                        {#
+                        {% if admin_view.column_descriptions.get(c) %}
+                            <a class="glyphicon glyphicon-question-sign"
+                               title="{{ admin_view.column_descriptions[c] }}"
+                               href="javascript:void(0)" data-role="tooltip"
+                            ></a>
+                        {% endif %}
+                        #}
+                    </th>
+                    {% set column = column + 1 %}
+                    {% endfor %}
+                {% endblock %}
+            </tr>
+        </thead>
+        {% for row in data %}
+        <tr>
+            {% block list_row scoped %}
+                {% if actions %}
+                <td>
+                    <input type="checkbox" name="rowid" class="action-checkbox" value="{{ get_pk_value(row) }}" title="{{ _('Select record') }}" />
+                </td>
+                {% endif %}
+                <td>
+                    <a target="_blank" class="icon" href="{{ get_url('.download_view', id=get_pk_value(row)) }}" title="{{ _('Download Original Message') }}">
+                        <i class="glyphicon glyphicon-paperclip"></i>
+                    </a>
+                </td>                
+                
+                {% block list_row_actions_column scoped %}
+                {#
+                <td>
+                    {% block list_row_actions scoped %}
+                        {%- if admin_view.can_edit -%}
+                        <a class="icon" href="{{ get_url('.edit_view', id=get_pk_value(row), url=return_url) }}" title="{{ _('Edit record') }}">
+                            <span class="glyphicon glyphicon-pencil"></span>
+                        </a>
+                        {%- endif -%}
+                        {%- if admin_view.can_delete -%}
+                        <form class="icon" method="POST" action="{{ get_url('.delete_view') }}">
+                            <input type="hidden" name="id" value="{{ get_pk_value(row) }}"/>
+                            <input type="hidden" name="url" value="{{ return_url }}"/>
+                            {% if delete_form.csrf_token %}
+                            <input type="hidden" name="csrf_token" value="{{ delete_form.csrf_token() }}"/>
+                            {% endif %}
+                            <button onclick="return confirm('{{ _('Are you sure you want to delete this record?') }}');" title="Delete record">
+                                <span class="glyphicon glyphicon-trash"></span>
+                            </button>
+                        </form>
+                        {%- endif -%}
+                    {% endblock %}
+                </td>
+                #}
+                {% endblock %}
+                {% for c, name in list_columns %}
+                    {% if admin_view.is_editable(c) %}
+                        {% if form.csrf_token %}
+                        <td>{{ form[c](pk=get_pk_value(row), value=get_value(row, c), csrf=form.csrf_token._value()) }}</td>
+                        {% else %}
+                        <td>{{ form[c](pk=get_pk_value(row), value=get_value(row, c)) }}</td>
+                        {% endif %}
+                    {% else %}
+                    <td>
+                        {% if columns_show_link and c == columns_show_link %} 
+					    <a class="icon" href="{{ get_url('.show_view', id=get_pk_value(row), url=return_url) }}" title="{{ _('Show record') }}">
+					        {{ get_value(row, c) }}
+					    </a>					    
+					    {% else %}
+					       {{ get_value(row, c) }}
+					    {% endif %}
+                    </td>
+                    {% endif %}
+                {% endfor %}
+            {% endblock %}
+        </tr>
+        {% else %}
+        <tr>
+            <td colspan="999">
+                {% block empty_list_message %}
+                <div class="text-center">
+                    {{ admin_view.get_empty_list_message() }}
+                </div>
+                {% endblock %}
+            </td>
+        </tr>
+        {% endfor %}
+    </table>
+    {{ lib.pager(page, num_pages, pager_url) }}
+    {% endblock %}
+
+    {{ actionlib.form(actions, get_url('.action_view')) }}
+{% endblock %}
+
+{% block tail %}
+    {{ super() }}
+    <script src="{{ admin_static.url(filename='admin/js/filters-1.0.0.js') }}"></script>
+    {{ lib.form_js() }}
+
+    {{ actionlib.script(_('Please select at least one record.'),
+                        actions,
+                        actions_confirmation) }}
+
+    <script language="javascript">
+        (function($) {
+            $('[data-role=tooltip]').tooltip({
+                html: true,
+                placement: 'bottom'
+            });
+            {% if filter_groups %}
+                var filter = new AdminFilters(
+                    '#filter_form', '.field-filters',
+                    {{ filter_groups|tojson|safe }},
+                    {{ active_filters|tojson|safe }}
+                );
+            {% endif %}
+        })(jQuery);
+    </script>
+    
+	<script type="text/javascript" charset="utf-8">
+	
+	$(document).ready(function() {
+	
+	    $(".rcpt_more").click(function(e) {
+	        e.preventDefault();
+	        var target = $(this).attr('data-row-target');
+	        $(target).toggle();  
+	    });
+	    
+	});
+	
+	</script>
+	    
+{% endblock %}
+    

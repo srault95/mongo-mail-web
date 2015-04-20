@@ -1,0 +1,156 @@
+{% extends 'admin/master.html' %}
+
+{% block body %}
+
+<table id="table_resume" class="table table-condensed table-bordered table-striped">
+    <tbody>
+        <tr>        
+            <td class="col-md-2">Clé</td>
+            <td class="col-md-10">{{ model.store_key }}</td>
+        </tr>
+        <tr>
+            <td>Message-Id</td>
+            <td>{{ model.message_id|safe }}</td>
+        </tr>
+        <tr>
+            <td>Envoyé le</td>
+            <td>{{ model.sent|datetimeformat(format='full') }}
+            {# ({{ model.sent_origin }}) #}</td>
+        </tr>
+        <tr>
+            <td>Reçu le</td>
+            <td>{{ model.received|datetimeformat(format='full') }}</td>
+        </tr>
+        <tr>
+            <td>Sujet</td>
+            <td>{{ model.subject|safe }}</td>
+        </tr>
+        <tr>
+            <td>Expéditeur</td>
+            <td>{{ model.sender }}</td>
+        </tr>
+        <tr>
+            <td>Destinataire(s)</td>
+            <td>
+                {% if model.rcpt_count == 1 %}
+                    {{ model.rcpt.0 }}
+                {% else %}
+                    <ul>
+                        {% for rcpt in model.rcpt %}
+                            <li>{{ rcpt }}</li>
+                        {% endfor %}
+                    </ul>
+                {% endif %}
+            </td>
+        </tr>
+        <tr>
+            <td>Taille</td>
+            <td>{{ model.size|filesizeformat }}</td>
+        </tr>
+        <tr>
+            <td>De l'adresse IP</td>
+            <td>{{ model.client_address }}</td>
+        </tr>
+        <tr>
+            <td>Pays d'origine</td>
+            <td>{{ country_name(model.country) }}</td>
+        </tr>
+        <tr>
+            <td>Fichiers ({{model.files_count}})</td>
+            <td>
+                {% if model.files_count == 0 %}
+                    &nbsp;
+                {% else %}
+                    <table class="table table-condensed table-striped">
+                    <thead>
+                        <th>Fichier</th>
+                        <th>Taille</th>
+                        <th>Type</th>
+                    </thead>
+                    <tbody>
+                    {% for f in model.files %}
+                        <tr>
+                            <td>{{ f.filename }}</td>
+                            <td>{{ f.size|filesizeformat }}</td>
+                            <td>{{ f.content_type }}</td>
+                        </tr>                    
+                    {% endfor %}
+                    </tbody>
+                    </table>                
+                {% endif %}
+            </td>
+        </tr>
+    </tbody>
+</table>
+
+<a href="#" id="collapse_headers">
+    <h3><i class="fa fa-shield fa-rotate-270"></i> Entêtes</h3>
+</a>
+<table id="table_headers" class="table table-condensed table-bordered table-striped">
+    <tbody>
+        {% for name, value in email.headers.items() %}
+           <tr>
+               <td class="col-md-2">{{ name }}</td>
+               <td class="col-md-10">
+                    {{ value }}
+               </td>
+           </tr>
+        {% endfor %}    
+    </tbody>
+</table>
+
+<a href="#" id="collapse_body">
+    <h3><i class="fa fa-shield fa-rotate-270"></i> Message</h3>
+</a>
+<div id="message_body">
+        {% if email.content_type.is_singlepart() %}
+            <pre>{{ email.body|safe }}</pre>            
+        {% else %}
+            {% for part in email.parts %}
+                {% if part.is_body() %}
+                {# and part.content_type.value in ['text/plain', 'text/html'] #}
+                    <h5>Partie : {{ loop.index }} - {{ part.content_type.value }} : ({{part.size|filesizeformat}})</h5>
+                    <pre>{{ part.body }}</pre>
+                {% elif part.detected_file_name %}
+                    <h5>Partie : {{ loop.index }} - {{ part.detected_file_name }} : ({{part.size|filesizeformat}})</h5>
+                {% else %}
+                   <h5>Partie : {{ loop.index }} - {{ part.content_type.value }}</h5>
+                                
+                {% endif %}
+            {% endfor %}
+        {% endif %}    
+</div>    
+
+
+{% endblock body %}
+
+{% block tail %}
+{{ super() }}
+        
+<script type="text/javascript">
+
+$(document).ready(function() {
+    
+    $('#collapse_resume').click(function(e) {
+        e.preventDefault();
+        $('#table_resume').toggle();
+    });
+
+    $('#collapse_headers').click(function(e) {
+        e.preventDefault();
+        $('#table_headers').toggle();
+    });
+    
+    $('#collapse_body').click(function(e) {
+        e.preventDefault();
+        $('#message_body').toggle();
+    });
+    
+    $('#table_headers').toggle();
+    $('#message_body').toggle();
+
+});
+
+</script>
+        
+{% endblock tail %}    

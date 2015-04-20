@@ -1,0 +1,47 @@
+{% macro menu_title(item) %}
+    {% if item.name in c.MENU_ITEMS %}        
+        <i class="{{ c.MENU_ITEMS[item.name].icon }}"></i> {{ c.MENU_ITEMS[item.name].title }}
+    {% else %}
+        {{ item.name }}
+    {% endif %}
+{% endmacro %}
+
+{% macro menu() %}
+  {%- for item in admin_view.admin.menu() %}
+    {%- if item.is_category() -%}
+      {% set children = item.get_children() %}
+      {%- if children %}
+        {% set class_name = item.get_class_name() %}
+        
+        <div class="btn-group navbar-btn">
+          <a class="btn btn-default{%- if item.is_active(admin_view) %} active{%- endif %}" href="#">{{ menu_title(item) }}</a>
+          <a class="btn btn-default dropdown-toggle" data-toggle="dropdown" href="#">
+            <span class="fa fa-caret-down"></span>
+          </a>
+          <ul class="dropdown-menu">
+          {%- for child in children -%}
+            {% set class_name = child.get_class_name() %}
+            <li class="{%- if child.is_active(admin_view) %}active{%- endif %}{% if class_name %} {{class_name}}{% endif %}">
+              <a href="{{ child.get_url() }}">{{ child.name }}</a>
+            </li>
+          {%- endfor %}
+          </ul>
+        </div>
+        
+      {% endif %}
+    {%- else %}
+      {%- if item.is_accessible() and item.is_visible() -%}
+        {% set class_name = item.get_class_name() %}
+        <div class="btn-group navbar-btn">
+          <a class="btn btn-default" href="{{ item.get_url() }}">{{ menu_title(item) }}</a>
+        </div>
+        {#        
+        <li class="{%- if item.is_active(admin_view) %}active{%- endif %}{% if class_name %} {{class_name}}{% endif %}">
+          <a class="btn btn-default" href="{{ item.get_url() }}">{{ menu_title(item) }}</a>
+        </li>
+        #}
+      {%- endif -%}
+    {% endif -%}
+  {% endfor %}
+{% endmacro %}
+

@@ -1,0 +1,275 @@
+{% extends 'admin/master.html' %}
+
+{% block head_tail %}
+    {{ super() }}
+    <link rel="stylesheet" href="{{ url_for('static', filename='mmw/vendors/jquery-jvectormap/jquery-jvectormap-2.0.2.css') }}" type="text/css" media="screen"/>
+    <style>
+        #map ul li, #map ol li {
+            font-size: 24px;
+            line-height: 30px;        
+        }
+    </style>
+    
+{% endblock %}
+
+{% block tail_js %}
+    {{ super() }}
+    <script src="{{ url_for('static', filename='mmw/vendors/jquery-jvectormap/jquery-jvectormap-2.0.2.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='mmw/vendors/jquery-jvectormap/jquery-jvectormap-world-mill-en.js') }}"></script>
+
+    {#
+    <script src="{{ url_for('static', filename='mmw/vendors/highcharts/highcharts.js') }}"></script>
+    <script src="{{ url_for('static', filename='mmw/vendors/highcharts/modules/data.js') }}"></script>
+    #}
+    <script src="{{ url_for('static', filename='mmw/vendors/highstock/highstock.js') }}"></script>
+    <script src="{{ url_for('static', filename='mmw/vendors/highstock/modules/data.js') }}"></script>
+    
+    
+    <script type="text/javascript" src="{{ url_for('static', filename='mmw/vendors/mustache.min.js') }}"></script>
+    <script type="text/javascript" src="{{ url_for('static', filename='mmw/js/dashboard/counters.js') }}"></script>
+    <script type="text/javascript" src="{{ url_for('static', filename='mmw/js/dashboard/message-chart.js') }}"></script>
+    
+{% endblock %}
+
+{% block tail %}
+{{ super() }}
+
+<script type="text/javascript">
+
+var default_interval = {{ current_refresh }}; // 5 seconds
+var current_lang = "{{current_lang}}";
+var chart1_url = '{{ url_for('metrics.group_by_period') }}';
+var counters_url = "{{ url_for('metrics.group_by_period_label') }}"; 
+var top_generic_type = '{{c.METRIC_KEY_TYPE_IP}}';
+var generic_top_url = "{{ url_for('metrics.top_multi_generic') }}";
+var country_url = "{{ url_for('metrics.top_country_count') }}";
+var periods = {{c.PERIOD_CHOICES_DICT|tojson}};
+
+$(document).ready(function() {
+
+    var current_period = "last-month";
+    
+    $('#refresh').on('change', function() {
+        var value = $(this).val();
+        location.href = value;
+    });
+	
+	$(document).ajaxSend(function(event, request, settings) {
+		$('#loading-indicator').show();
+	});
+
+    $(document).ajaxComplete(function(event, request, settings) {
+    	$('#loading-indicator').hide();
+	});
+		
+    Highcharts.setOptions({
+        global: {
+            useUTC: true,
+        }
+    });
+    
+    var highcharts_lang_options = {
+        fr: {
+            loading: 'Chargement...',
+            months: ['janvier', 'février', 'mars', 'avril', 'mai', 'juin', 'juillet', 'août', 'septembre', 'octobre', 'novembre', 'décembre'],
+            weekdays: ['dimanche', 'lundi', 'mardi', 'mercredi', 'jeudi', 'vendredi', 'samedi'],
+            shortMonths: ['jan', 'fév', 'mar', 'avr', 'mai', 'juin', 'juil', 'aoû', 'sep', 'oct', 'nov', 'déc'],
+            exportButtonTitle: "Exporter",
+            printButtonTitle: "Imprimer",
+            rangeSelectorFrom: "Du",
+            rangeSelectorTo: "au",
+            rangeSelectorZoom: "Période",
+            downloadPNG: 'Télécharger en PNG',
+            downloadJPEG: 'Télécharger en JPEG',
+            downloadPDF: 'Télécharger en PDF',
+            downloadSVG: 'Télécharger en SVG',
+            resetZoom: "Réinitialiser le zoom",
+            resetZoomTitle: "Réinitialiser le zoom",
+            thousandsSep: " ",
+            decimalPoint: ',',
+            noData: 'Pas d\'information à afficher'
+        }
+    };    
+    
+    if (current_lang in highcharts_lang_options){
+        Highcharts.setOptions({
+            lang: highcharts_lang_options[current_lang]
+        });    	
+    };
+
+    var chart1_options = {
+   		url: chart1_url, 
+        placeholder: '#metric_per_period', 
+        timer: default_interval
+    };
+    
+    var chart1 = MessageChart(chart1_options);
+
+    var counters_options = {
+    	url: counters_url,
+    	timer: default_interval
+    };
+    
+    var counters_settings = {
+       enable_select_field: false,
+       metric_label: {
+           mail_count: '{{_("All")}}',
+           mail_in: '{{_("Incoming")}}',
+           mail_out: '{{_("Outgoing")}}',
+           clean: '{{_("Clean")}}',
+           spam: '{{_("Spam")}}',
+           virus: '{{_("Infected")}}',
+           banned: '{{_("Banned")}}',
+           bounce: '{{_("Bounced")}}',
+           total_size: '{{_("Size")}}'
+       }
+    };
+    
+    var counters = Counters(counters_options, counters_settings);
+    //counters.load();
+    
+    var ip_panel_loaded = false;
+    
+    var top_country_field = 'mail_count';
+
+    var country_panel_loaded = false;
+
+    function load_metric_generic_top(first_load) {
+    	
+        if (!first_load && !$("a[href='#top_generic_panel']").parent().hasClass('active')){
+            return;
+        }
+    	
+        $("#top_ip").load(generic_top_url+"?html=1&limit=10&key_type="+top_generic_type+"&period="+current_period, function() {
+
+            $('#generic_top_current_field').bind('change', function() {
+                var value = $(this).val();
+                top_generic_type = value;
+                load_metric_generic_top();
+            });
+        	
+	        $('.metric-top-generic').bind('click', function(e) {
+	            e.preventDefault();
+	            //var href = $(this).attr('href');
+	            load_metric_generic_top();
+	        });
+	        
+        });
+    };
+    
+    $("a[href='#top_generic_panel']").on('show.bs.tab', function(e) {
+        if (! ip_panel_loaded ) {
+        	load_metric_generic_top(true);
+            ip_panel_loaded = true;
+            if (default_interval > 0)
+                setInterval(load_metric_generic_top, default_interval);
+        }
+    });
+    
+    function load_metric_country(first_load) {
+    	
+    	if (!first_load && !$("a[href='#top_country_panel']").parent().hasClass('active')){
+    		return;
+    	}
+    	
+        $("#top_country").load(country_url+"?html=1&field="+top_country_field+"&period="+current_period, function() {
+            
+            $('#country_current_field').bind('change', function() {
+                var value = $(this).val();
+                top_country_field = value;
+                load_metric_country();
+            });
+            
+            $('#metric_country_refresh').bind('click', function(e) {
+                e.preventDefault();
+                load_metric_country();
+            });
+            
+        });
+    };
+    
+    $("a[href='#top_country_panel']").on('show.bs.tab', function(e) {
+        if (! country_panel_loaded ) {
+        	load_metric_country(true);
+            country_panel_loaded = true;
+            if (default_interval > 0)
+                setInterval(load_metric_country, default_interval);
+        }
+    });
+
+    var select_period_html = function() {
+        
+        var values = [];
+        for(var period in periods){
+            var period_txt = periods[period];
+            if(period == current_period){
+                $('#current_period').text(period_txt);
+                values.push('<li class="active"><a class="period" data-value="'+period+'" href="#">'+ period_txt+' *</a></li>');                
+            } else {
+                values.push('<li><a class="period" data-value="'+period+'" href="#">'+ period_txt+'</a></li>');                
+            }
+        };
+        $('#periods').html(values.join('\n'));
+
+        $('.period').on('click', function(e) {
+            e.preventDefault();
+            var value = $(this).attr('data-value');
+            current_period = value;
+            counters.change_period(value);
+            chart1.change_period(value);
+            load_metric_country();
+            load_metric_generic_top();
+            select_period_html();
+        });
+    };
+    select_period_html();
+
+});         
+</script>        
+    
+{% endblock %}
+
+{% block sub_main_menu %}
+	<div class="btn-group navbar-btn">        
+	  <a class="btn btn-default" href="#"><i class="fa fa-refresh fa-fw"></i> {{ c.REFRESH_CHOICES_DICT[current_refresh|int] }}</a>
+	  <a class="btn btn-default dropdown-toggle" data-toggle="dropdown" href="#">
+	    <span class="fa fa-caret-down"></span>
+	  </a>
+	  <ul class="dropdown-menu">
+	  {% for key, refresh in c.REFRESH_CHOICES %}
+	    {% if key == current_refresh|int %}                            
+	        <li class="active"><a href="{{ url_for('admin.index') }}?current_refresh={{ key }}">{{ refresh }} *</a></li>
+	    {% else %}    
+	        <li><a href="{{ url_for('admin.index') }}?current_refresh={{ key }}">{{ refresh }}</a></li>
+	    {% endif %}    
+	  {% endfor %}
+	  </ul>
+	</div>
+         
+	<div class="btn-group navbar-btn">        
+	  <a class="btn btn-default" href="#"><i class="fa fa-calendar fa-fw"></i> <span id="current_period"></span></a>
+	  <a class="btn btn-default dropdown-toggle" data-toggle="dropdown" href="#">
+	    <span class="fa fa-caret-down"></span>
+	  </a>
+	  <ul class="dropdown-menu" id="periods">
+	  </ul>
+	</div>
+	
+	<div class="btn-group navbar-btn" id="loading-indicator" style="display:none">
+	    <i class="fa fa-spinner fa-spin fa-2x"></i>
+	</div>
+  
+{% endblock %}
+    
+{% block body %}
+
+<div class="col-md-12">
+
+    {% include "mmw/admin/dashboard-counters.html" with context %}
+
+    {% include "mmw/admin/dashboard-panels.html" with context %}
+    
+</div>
+
+{% endblock %}
+    
