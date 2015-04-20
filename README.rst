@@ -22,52 +22,56 @@ Bootswatch themes
 
 .. image:: http://espace-groupware.com/docs/mongo-mail/img/mongo-mail-web-dashboards-mini.png
    :align: center
+
    
 Messages Statistics
 -------------------
 
-.. image:: http://espace-groupware.com/docs/mongo-mail/img/dashboard-default.png
+.. image:: http://espace-groupware.com/docs/mongo-mail/img/dashboard-default-tb.png
    :align: center
-   :scale: 50%
+
    
 Country Map
 -----------
 
-.. image:: http://espace-groupware.com/docs/mongo-mail/img/dashboard-country.png
+.. image:: http://espace-groupware.com/docs/mongo-mail/img/dashboard-country-tb.png
    :align: center
-   :scale: 50%
+
 
 Multi Top Ten
 -------------
    
-.. image:: http://espace-groupware.com/docs/mongo-mail/img/dashboard-top-ten.png
+.. image:: http://espace-groupware.com/docs/mongo-mail/img/dashboard-top-ten-tb.png
    :align: center
-   :scale: 50%
-   
-Messages tables and search
---------------------------
-   
-.. image:: http://espace-groupware.com/docs/mongo-mail/img/message-table.png
-   :align: center
-   :scale: 50%
 
-.. image:: http://espace-groupware.com/docs/mongo-mail/img/message-table-search.png
+   
+Messages Tables
+---------------
+
+.. image:: http://espace-groupware.com/docs/mongo-mail/img/message-table-tb.png
    :align: center
-   :scale: 50%
+
+Messages Search
+---------------
+
+.. image:: http://espace-groupware.com/docs/mongo-mail/img/message-table-search-tb.png
+   :align: center
+
+
 
 Messages show
 -------------
    
-.. image:: http://espace-groupware.com/docs/mongo-mail/img/show-message.png
+.. image:: http://espace-groupware.com/docs/mongo-mail/img/show-message-tb.png
    :align: center
-   :scale: 50%
+
    
 Metrics tables
 --------------
 
-.. image:: http://espace-groupware.com/docs/mongo-mail/img/metrics-table.png
+.. image:: http://espace-groupware.com/docs/mongo-mail/img/metrics-table-tb.png
    :align: center
-   :scale: 50%
+
    
 Installation
 ============
@@ -75,8 +79,7 @@ Installation
 Without Docker
 --------------
 
-Required
-::::::::
+**Required:**
 
 - MongoDB Server
 - Mongo Mail Server
@@ -84,6 +87,8 @@ Required
 - python-gevent 1.0+
 - recent setuptools and pip installer
 - Nginx (optionnal)
+
+**Installation:**
 
 .. code:: bash
 
@@ -98,14 +103,11 @@ In progress...
 
 See demonstration environment: `Mongo Mail Demo`_
 
-Configuration
-=============
-
-With Environment
-----------------
+Configuration With Environment
+==============================
 
 MMW_SETTINGS
-::::::::::::
+------------
 
 Module Setting 
 
@@ -123,19 +125,19 @@ Default: mongo_mail_web.settings.Prod
     $ mongo-mail-web -c mongo_mail_web.settings.Prod <CMD>
     
 MMW_MONGODB_URI
-:::::::::::::::
+---------------
 
 *Default*: mongodb://localhost/message
 
 http://docs.mongodb.org/manual/reference/connection-string/
 
 MMW_SUPERADMIN_EMAIL / MMW_SUPERADMIN_PASSWORD
-::::::::::::::::::::::::::::::::::::::::::::::
+----------------------------------------------
 
 *Default*: admin@example.net / password
      
-With local_settings
--------------------
+Configuration With local_settings
+=================================
 
 .. code:: python
 
@@ -207,5 +209,4 @@ To contribute to the project, fork it on GitHub and send a pull request, all con
 
 .. |pypi dev_status| image:: https://pypip.in/status/mongo-mail-web/badge.svg
     :target: https://pypi.python.org/pypi/mongo-mail-web
-    :alt: Development Status        
-    
+    :alt: Development Status
