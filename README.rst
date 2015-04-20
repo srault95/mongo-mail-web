@@ -92,7 +92,12 @@ Without Docker
 
 .. code:: bash
 
-    $ pip install mongo-mail-web
+    # fix in progress...
+    # $ pip install mongo-mail-web
+    
+    $ git clone https://github.com/srault95/mongo-mail-web.git
+    $ cd mongo-mail-web
+    $ python setup.py install 
 
     $ mongo-mail-web --help
 
