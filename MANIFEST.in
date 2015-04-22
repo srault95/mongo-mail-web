@@ -2,4 +2,5 @@ include README.rst
 include LICENSE
 include requirements.txt
 include setup.cfg
+recursive-include mongo_mail_web *
 global-exclude *.pyc
