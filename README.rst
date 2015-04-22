@@ -1,4 +1,3 @@
-============================
 Web UI for Mongo Mail Server
 ============================
 
@@ -14,70 +13,65 @@ Web UI for Mongo Mail Server
     :depth: 1
     :backlinks: none
 
-UI
-==
+Screenshots
+-----------
 
 Bootswatch themes
------------------
++++++++++++++++++
 
 .. image:: http://espace-groupware.com/docs/mongo-mail/img/mongo-mail-web-dashboards-mini.png
    :align: center
 
    
 Messages Statistics
--------------------
++++++++++++++++++++
 
 .. image:: http://espace-groupware.com/docs/mongo-mail/img/dashboard-default-tb.png
    :align: center
-
    
 Country Map
------------
++++++++++++
 
 .. image:: http://espace-groupware.com/docs/mongo-mail/img/dashboard-country-tb.png
    :align: center
 
-
 Multi Top Ten
--------------
++++++++++++++
    
 .. image:: http://espace-groupware.com/docs/mongo-mail/img/dashboard-top-ten-tb.png
    :align: center
 
-   
 Messages Tables
----------------
++++++++++++++++
 
 .. image:: http://espace-groupware.com/docs/mongo-mail/img/message-table-tb.png
    :align: center
 
 Messages Search
----------------
++++++++++++++++
 
 .. image:: http://espace-groupware.com/docs/mongo-mail/img/message-table-search-tb.png
    :align: center
 
-
-
 Messages show
--------------
++++++++++++++
    
 .. image:: http://espace-groupware.com/docs/mongo-mail/img/show-message-tb.png
    :align: center
 
    
 Metrics tables
---------------
+++++++++++++++
 
 .. image:: http://espace-groupware.com/docs/mongo-mail/img/metrics-table-tb.png
    :align: center
 
    
 Installation
-============
+------------
 
 Without Docker
---------------
+++++++++++++++
 
 **Required:**
 
@@ -92,27 +86,33 @@ Without Docker
 
 .. code:: bash
 
-    # fix in progress...
-    # $ pip install mongo-mail-web
+    $ pip install --process-dependency-links mongo-mail-web 
     
-    $ git clone https://github.com/srault95/mongo-mail-web.git
-    $ cd mongo-mail-web
+    OR 
+    
+    $ git clone https://github.com/srault95/mongo-mail-web.git && cd mongo-mail-web
     $ python setup.py install 
 
     $ mongo-mail-web --help
+    
+**Create admin user:**    
+
+.. code:: bash
+    
+    $ mongo-mail-web create-superadmin
 
 With Docker
------------
++++++++++++
 
 In progress...
 
 See demonstration environment: `Mongo Mail Demo`_
 
 Configuration With Environment
-==============================
+------------------------------
 
 MMW_SETTINGS
-------------
+++++++++++++
 
 Module Setting 
 
@@ -130,19 +130,19 @@ Default: mongo_mail_web.settings.Prod
     $ mongo-mail-web -c mongo_mail_web.settings.Prod <CMD>
     
 MMW_MONGODB_URI
----------------
++++++++++++++++
 
 *Default*: mongodb://localhost/message
 
 http://docs.mongodb.org/manual/reference/connection-string/
 
-MMW_SUPERADMIN_EMAIL / MMW_SUPERADMIN_PASSWORD
-----------------------------------------------
+MMW_SUPERADMIN_EMAIL and MMW_SUPERADMIN_PASSWORD
+++++++++++++++++++++++++++++++++++++++++++++++++
 
 *Default*: admin@example.net / password
      
 Configuration With local_settings
-=================================
+---------------------------------
 
 .. code:: python
 
@@ -155,7 +155,7 @@ Configuration With local_settings
    
    
 TODO
-====
+----
 
 - Tests
 - Wizard configuration
@@ -168,7 +168,7 @@ TODO
 - Rest API
 
 Contributing
-============
+------------
 
 To contribute to the project, fork it on GitHub and send a pull request, all contributions and suggestions are welcome.
 
