@@ -53,7 +53,6 @@ setup(
         'Flask-Admin>=1.1.0',
         'geoip-data',
         'pygeoip',
-        #'mongo-mail-tools',
         'Flask-DebugToolbar',                        
     ],
     dependency_links=[
