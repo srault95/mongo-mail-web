@@ -42,7 +42,7 @@ setup(
         'python-decouple',
         'pymongo<3.0,>=2.8',
         'mongoengine>=0.9.0',
-        'flask-monoengine==dev',
+        'flask-mongoengine==dev',
         'mongolock>=1.3.3',
         'flanker==light_deps',
         'Flask-Script',
