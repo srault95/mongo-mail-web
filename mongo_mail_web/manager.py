@@ -117,33 +117,6 @@ class ShowConfigCommand(Command):
     def run(self, **kwargs):
         _show_config()        
 
-def completed_messages(force=False, error_limit=5):
-    """
-    24 secs for 679 docs
-    """
-
-    start = time.time()    
-    count = 0
-    error_count = 0
-    errors = {}
-    qs = models.MessageStore.objects
-    if not force:
-        qs = qs.filter(completed__ne=1)
-    
-    for msg in qs:
-        try:
-            msg._complete()
-            count += 1
-            if error_count >= error_limit:
-                return count, error_count, errors, time.time() - start
-        except Exception, err:
-            error_count += 1
-            errors[msg.store_key] = str(err)
-    
-    durtime = time.time() - start
-    
-    return count, error_count, errors, durtime
-
 def reset_metrics():
     models.Metric.drop_collection()
     models.MessageStore.objects.update(metric=0)
@@ -155,15 +128,6 @@ def reset_db():
     models.MessageStore.drop_collection()
     models.Metric.drop_collection()
     
-    """
-    from mongoengine.base.common import _document_registry    
-    for model in _document_registry.values():
-        try:
-            model.drop_collection()
-        except:
-            pass
-    """
-
     db = models.MessageStore._get_db()
     count = db.fs.files.remove({})
     count = db.fs.chunks.remove({})
@@ -179,26 +143,6 @@ class CreateSuperAdminCommand(Command):
 
     def run(self, **kwargs):
         _create_superadmin_user()
-
-class CompletedMessageCommand(Command):
-    u"""Apply _complete() method on new message_store"""
-
-    option_list = (
-                   
-        Option('--force', 
-               action="store_true", 
-               dest='force', 
-               default=False),
-
-    )
-
-    def run(self, force=False, **kwargs):
-        count, error_count, errors, durtime = completed_messages(force=force)
-        print "count[%s] - errors[%s] - time[%.3f]" % (count, error_count, durtime)
-        if error_count > 0:
-            for key, value in errors.items():
-                print key, value
-        
 
 class ResetMetrics(Command):
     u"""Delete all metrics and recreate all"""
@@ -284,17 +228,10 @@ def main(create_app_func=None):
                     port=8081)
     )
 
-    manager.add_command("run", Server(
-                    host = '0.0.0.0',
-                    port=8081)
-    )
-    
     manager.add_command("config", ShowConfigCommand())
     manager.add_command("urls", ShowUrlsCommand())
     manager.add_command("reset-db", ResetCommand())
     manager.add_command("reset-metrics", ResetMetrics())
-    
-    manager.add_command("complete", CompletedMessageCommand())
     
     manager.add_command('users', ShowUsersCommand())
     manager.add_command('create-superadmin', CreateSuperAdminCommand())
