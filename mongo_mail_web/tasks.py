@@ -40,18 +40,9 @@ def update_metrics_task(sleep=10.0):
             logger.error(str(err))
 
 
-def demo_task(**kwargs):
-    domains = [d.name for d in models.Domain.objects]
-    mynetworks = [m.ip_address for m in models.Mynetwork.objects(address_type=constants.MYNETWORK_TYPE_IP)]
-    
-    from mm_tools.gevent_tasks import sent_fake_mail_task
-    gevent.spawn(sent_fake_mail_task, domains=domains, mynetworks=mynetworks, **kwargs)
-    
-def run_all_tasks(is_demo=False, completed_sleep=10.0, completed_pool=10, update_metrics_sleep=10.0, demo_task_settings={}):
+def run_all_tasks(completed_sleep=10.0, completed_pool=10, update_metrics_sleep=10.0):
     gevent.spawn(completed_message_task, sleep=completed_sleep, pool_size=completed_pool)
     gevent.spawn(update_metrics_task, sleep=update_metrics_sleep)
-    if is_demo:
-        gevent.spawn(demo_task, **demo_task_settings)
         
     
     

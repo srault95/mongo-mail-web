@@ -260,22 +260,6 @@ def _configure_mongolock(app):
     from mongolock import MongoLock
     metrics.lock = MongoLock(client=models.MessageStore._get_db().connection)
 
-def _configure_demo(app):
-    
-    from . import models
-    
-    @app.before_first_request
-    def reset():
-        models.User.drop_collection()
-        models.User.create_user(username=config_from_env('MMW_SUPERADMIN_EMAIL', 'admin@example.net'), 
-                                password=config_from_env('MMW_SUPERADMIN_PASSWORD', 'password'), 
-                                role="superadmin", 
-                                group=constants.GROUP_DEFAULT)
-        
-        for i in xrange(1, 10):
-            models.Domain.objects.get_or_create(name="example-%s.net" % i)
-            models.Mynetwork.objects.get_or_create(ip_address="10.0.0.%d" % i)
-
 def _configure_processors(app):
     
     from . import constants
@@ -287,10 +271,6 @@ def _configure_processors(app):
     def form_helpers():
         return dict(is_hidden=_is_hidden, is_required=_is_required)
     
-    @app.context_processor
-    def demo():
-        return dict(is_demo=app.config.get('DEMO_MODE'), users=models.User.objects)
-
     @app.context_processor
     def langs():
         return dict(langs=app.config.get('ACCEPT_LANGUAGES_CHOICES'))
@@ -368,14 +348,8 @@ def create_app(config='mongo_mail_web.settings.Prod'):
 
     app.wsgi_app = ProxyFix(app.wsgi_app)
     
-    is_demo=app.config.get('DEMO_MODE', False)
-    if is_demo:
-        _configure_demo(app)
-    
-    tasks.run_all_tasks(is_demo=is_demo,
-                        completed_pool=app.config.get('TASK_COMPLETED_POOL'),
+    tasks.run_all_tasks(completed_pool=app.config.get('TASK_COMPLETED_POOL'),
                         completed_sleep=app.config.get('TASK_COMPLETED_SLEEP'),
-                        update_metrics_sleep=app.config.get('TASK_UPDATE_METRICS_SLEEP'),
-                        demo_task_settings=app.config.get('TASK_DEMO_SETTINGS'))
+                        update_metrics_sleep=app.config.get('TASK_UPDATE_METRICS_SLEEP'))
     
     return app

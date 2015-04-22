@@ -412,15 +412,6 @@ class ModelView(RoledView, BaseModelView):
         self._template_args['get_column_title_field'] = self.get_column_title_field
         return BaseModelView.index_view(self)
     
-    @expose('/delete/', methods=('POST',))
-    def delete_view(self):
-        if current_app.config.get('DEMO_MODE', False):
-            return_url = self.get_url('.index_view')
-            flash(gettext('Not available function in Demo Mode.'))
-            return redirect(return_url)
-            
-        return BaseModelView.delete_view(self)
-        
     @expose('/show/', methods=('GET',))
     def show_view(self):
 
@@ -1371,18 +1362,6 @@ def init_admin(app,
                                base_template=base_template, 
                                template_mode='bootstrap3')
 
-    
-    if app.config.get('DEMO_MODE', False):
-        for m in [UserModelView, DomainView, MynetworkView, TransportView]:
-            m.can_edit = False
-            m.can_create = False
-            m.can_delete = False
-            if not m.action_disallowed_list:
-                m.action_disallowed_list = []
-            if not 'delete' in m.action_disallowed_list:
-                m.action_disallowed_list.append('delete')
-        
-        UserModelView.form_excluded_columns = ('password',)
     
     category_catalog = "settings"# gettext(u"Settings")
 

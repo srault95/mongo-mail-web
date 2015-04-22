@@ -13,7 +13,6 @@ from gevent.wsgi import WSGIServer
 from flask_script.commands import Shell, Server
 from decouple import config as config_from_env
     
-from mongo_mail_web.wsgi import create_app
 from mongo_mail_web import constants
 from mongo_mail_web import models
 from mongo_mail_web import metrics
@@ -241,11 +240,14 @@ class ResetCommand(Command):
             return reset_db()
 
 
-def main():
+def main(create_app_func=None):
     
     """
     TODO: commands pour créer fixtures de chaque mode pour démo
     """
+    if not create_app_func:
+        from mongo_mail_web.wsgi import create_app
+        create_app_func = create_app
     
     class ServerWithGevent(Server):
         help = description = 'Runs the Flask development server with WSGI SocketIO Server'
@@ -270,7 +272,7 @@ def main():
     
     env_config = config_from_env('MMW_SETTINGS', 'mongo_mail_web.settings.Prod')
     
-    manager = Manager(create_app, with_default_commands=False)
+    manager = Manager(create_app_func, with_default_commands=False)
     manager.add_option('-c', '--config',
                        dest="config",
                        default=env_config)
