@@ -1,7 +1,7 @@
 Web UI for Mongo Mail Server
 ============================
 
-|pypi downloads| |pypi dev_status| |pypi version| |pypi licence| |pypi py_versions|
+|pypi downloads| |pypi dev_status| |pypi version| |pypi licence| |pypi py_versions| |requires status|
 
 **Demo:**
 
@@ -90,8 +90,8 @@ Without Docker
     
     OR 
     
-    $ git clone https://github.com/srault95/mongo-mail-web.git && cd mongo-mail-web
-    $ python setup.py install 
+    $ git clone https://github.com/radical-software/mongo-mail-web.git && cd mongo-mail-web
+    $ pip install --process-dependency-links . 
 
     $ mongo-mail-web --help
     
@@ -173,9 +173,9 @@ Contributing
 To contribute to the project, fork it on GitHub and send a pull request, all contributions and suggestions are welcome.
 
 
-.. _`Mongo Mail Server`: https://github.com/srault95/mongo-mail-server
-.. _`Mongo Mail Web`: https://github.com/srault95/mongo-mail-web
-.. _`Mongo Mail Demo`: https://github.com/srault95/mongo-mail-demo
+.. _`Mongo Mail Server`: https://github.com/radical-software/mongo-mail-server
+.. _`Mongo Mail Web`: https://github.com/radical-software/mongo-mail-web
+.. _`Mongo Mail Demo`: https://github.com/radical-software/mongo-mail-demo
 .. _MongoDB: http://mongodb.org/
 .. _Docker: https://www.docker.com/
 .. _Ubuntu: http://www.ubuntu.com/
@@ -215,3 +215,7 @@ To contribute to the project, fork it on GitHub and send a pull request, all con
 .. |pypi dev_status| image:: https://pypip.in/status/mongo-mail-web/badge.svg
     :target: https://pypi.python.org/pypi/mongo-mail-web
     :alt: Development Status
+    
+.. |requires status| image:: https://requires.io/github/radical-software/mongo-mail-web/requirements.svg?branch=master
+     :target: https://requires.io/github/radical-software/mongo-mail-web/requirements/?branch=master
+     :alt: Requirements Status    

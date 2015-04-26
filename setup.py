@@ -7,12 +7,12 @@ with open("README.rst") as fp:
     
 setup(
     name='mongo-mail-web',
-    version='0.1.1',
+    version='0.1.2',
     description='Web UI for Mongo Mail Server',
     long_description=long_description,
     author='Stéphane RAULT',
     author_email='stephane.rault@radicalspam.org',
-    url='https://github.com/srault95/mongo-mail-web',
+    url='https://github.com/radical-software/mongo-mail-web',
     zip_safe=False,
     #platforms=[],    
     license='BSD',
@@ -40,7 +40,7 @@ setup(
         'gevent>=1.0',
         'IPy',
         'python-decouple',
-        'pymongo<3.0,>=2.8',
+        'pymongo>=2.8,<3.0',
         'mongoengine>=0.9.0',
         'flask-mongoengine',
         'mongolock>=1.3.3',
@@ -53,12 +53,14 @@ setup(
         'Flask-Admin>=1.1.0',
         'geoip-data',
         'pygeoip',
-        'Flask-DebugToolbar',                        
+        'Flask-DebugToolbar',
+        'Flask-CuddlyRest'
     ],
     dependency_links=[
       'https://github.com/MongoEngine/flask-mongoengine/tarball/master/#egg=flask-mongoengine-0.7.1',
       'https://github.com/srault95/flanker/tarball/light_deps/#egg=flanker-0.4.27',
-      'https://github.com/srault95/geoip-data/tarball/master/#egg=geoip-data-0.1.1'
+      'https://github.com/srault95/geoip-data/tarball/master/#egg=geoip-data-0.1.1',
+      'https://github.com/wuurrd/Flask-CuddlyRest.git#egg=Flask-CuddlyRest-0.1.14'
     ],      
     test_suite='nose.collector',
     tests_require=[
