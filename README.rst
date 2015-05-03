@@ -1,7 +1,7 @@
 Web UI for Mongo Mail Server
 ============================
 
-|pypi downloads| |pypi dev_status| |pypi version| |pypi licence| |pypi py_versions| |requires status|
+|pypi downloads| |pypi version| |pypi licence| |requires status|
 
 **Demo:**
 
@@ -196,15 +196,15 @@ To contribute to the project, fork it on GitHub and send a pull request, all con
 .. _HighCharts: http://highcharts.com/
 .. _`jQuery VectorMap`: http://jvectormap.com 
 
-.. |pypi downloads| image:: https://pypip.in/download/mongo-mail-web/badge.svg
+.. |pypi downloads| image:: https://img.shields.io/pypi/dm/mongo-mail-web.svg
     :target: https://pypi.python.org/pypi/mongo-mail-web
     :alt: Number of PyPI downloads
     
-.. |pypi version| image:: https://pypip.in/version/mongo-mail-web/badge.svg
+.. |pypi version| image:: https://img.shields.io/pypi/v/mongo-mail-web.svg
     :target: https://pypi.python.org/pypi/mongo-mail-web
     :alt: Latest Version    
 
-.. |pypi licence| image:: https://pypip.in/license/mongo-mail-web/badge.svg
+.. |pypi licence| image:: https://img.shields.io/pypi/l/mongo-mail-web.svg
     :target: https://pypi.python.org/pypi/mongo-mail-web
     :alt: License
 
