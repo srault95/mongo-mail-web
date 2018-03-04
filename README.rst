@@ -208,11 +208,11 @@ To contribute to the project, fork it on GitHub and send a pull request, all con
     :target: https://pypi.python.org/pypi/mongo-mail-web
     :alt: License
 
-.. |pypi py_versions| image:: https://pypip.in/py_versions/mongo-mail-web/badge.svg
+.. |pypi py_versions| image:: https://img.shields.io/pypi/pyversions/mongo-mail-web.svg
     :target: https://pypi.python.org/pypi/mongo-mail-web
     :alt: Supported Python versions
 
-.. |pypi dev_status| image:: https://pypip.in/status/mongo-mail-web/badge.svg
+.. |pypi dev_status| image:: https://img.shields.io/pypi/status/mongo-mail-web.svg
     :target: https://pypi.python.org/pypi/mongo-mail-web
     :alt: Development Status
     
